@@ -22,7 +22,6 @@ const Routers = () => {
           <Route path='/payments' element={<Payments />} />
           <Route path='/members' element={<Members />} />
           <Route path='/subscriptions' element={<Subscription />} />
-
         </Route>
       </Routes>
     </BrowserRouter>

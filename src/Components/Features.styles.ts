@@ -70,7 +70,7 @@ export const FeatureButton = {
   ml: { xs: 0, md: 0 },
   display: { xs: "block", md: "none" },
   "&:hover": {
-    backgroundColor: "#50A1CA", // Background color on hover
+    backgroundColor: "#50A1CA", 
     cursor: "pointer",
     border: "none",
   },

@@ -66,8 +66,6 @@ const dashboardData = [
 
 
 
-
-
 const sectionTitle = "Access real-time insights with our"
 const sectionSubTitle = "Dashboard"
 const sectionHeading = "Empowering Decisions with Insights: Your Communn Dashboard"

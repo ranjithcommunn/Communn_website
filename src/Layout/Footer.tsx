@@ -142,7 +142,7 @@ const Footer = () => {
                         <Typography
                             sx={{
                                 fontFamily: "Montserrat",
-                                fontSize: "25px",
+                                fontSize: "23px",
                                 fontWeight: "bold",
                                 color: "#000000",
                                 textAlign: "center",

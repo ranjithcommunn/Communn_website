@@ -10,7 +10,6 @@ export const Layout = () => {
     return (
         <>
             <Header />
-
             <Box>
                 <Outlet />
             </Box>
