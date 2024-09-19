@@ -1,6 +1,6 @@
 import Features from "../../Components/Features"
 import SEO from "../../Components/Seo"
-import Banner1 from "../../Assets/Images/Features/Dashboard/1.webp"
+import Banner1 from "../../Assets/Images/Features/Payments/1.webp"
 import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 
@@ -27,48 +27,42 @@ const featuresData = [
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
+        title: "Unveiling Financial Insights",
         description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
-        image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
+            "Step into a realm of transparency. Communn reveals the intricate details of every transaction. Dive into reports that dissect each payment, providing a complete understanding of your community's financial flow.",
+        image: require("../../Assets/Images/Features/Payments/2.webp"),
     },
     {
-        title: "Connecting and Collaborating",
+        title: "Tracking Revenue with Precision",
         description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
-        image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
+            "No revenue detail goes unnoticed. Witness the growth as you track total earnings, settled balances, and unsettled figures. Stay ahead of the financial curve with real-time data at your fingertips.",
+        image: require("../../Assets/Images/Features/Payments/3.webp"),
     },
     {
-        title: "Earning Through Passion",
+        title: "Balancing the Books",
         description:
-            "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
-        image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
+            " Financial equilibrium is crucial. Communn's Reports section helps you maintain a balanced financial ecosystem. Allocate resources strategically, ensuring your community thrives.",
+        image: require("../../Assets/Images/Features/Payments/4.webp"),
     },
     {
-        title: "Empowering the Community",
+        title: "Customization at Your Fingertips",
         description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
-        image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
+            "No two communities are alike, and Communn acknowledges that. Tailor your insights by filtering results based on selected communities or specific dates. This customization aids in making data-driven decisions.",
+        image: require("../../Assets/Images/Features/Payments/5.webp"),
     },
     {
-        title: "Analytics for Growth",
+        title: "Effortless Financial Communication",
         description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
-        image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
-    },
-    {
-        title: "Beyond Boundaries",
-        description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
-        image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
+            "Seamlessly request payments from members for community-related matters. Admins can even personalize requests, addressing unique needs while keeping financial records precise and hassle-free.",
+        image: require("../../Assets/Images/Features/Payments/6.webp"),
     },
 ];
 
 
 
-const sectionTitle = "Access real-time insights with our"
-const sectionSubTitle = "Dashboard"
-const sectionHeading = "Empowering Decisions with Insights: Your Communn Dashboard"
+const sectionTitle = "Handle transactions seamlessly with"
+const sectionSubTitle = "Payment Management"
+const sectionHeading = "Join us on a journey where community management becomes a breeze! 🚀"
 
 
 export const Payments = () => {
@@ -77,7 +71,7 @@ export const Payments = () => {
 
     return (
         <>
-            <SEO title="DashBoard - Onecommunn" />
+            <SEO title="Payments - Onecommunn" />
             <Features
                 features={featuresData}
                 featureData={dashboardData}

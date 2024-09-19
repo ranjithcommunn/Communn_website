@@ -24,7 +24,7 @@ export const FeaturesHeading = {
 
 export const FeaturesContent = {
   fontFamily: "Montserrat",
-  color: "#1A2D4C",
+  color: "#000000",
   textAlign: "justify",
   fontSize: { xs: "15px", md: "17px" },
   lineHeight: "30px",

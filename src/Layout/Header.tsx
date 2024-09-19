@@ -1,194 +1,300 @@
-import { useState } from 'react'
-import {
-    Dialog,
-    DialogPanel,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Popover,
-    PopoverButton,
-    PopoverGroup,
-    PopoverPanel,
-} from '@headlessui/react'
-// import {
-//   ArrowPathIcon,
-//   Bars3Icon,
-//   ChartPieIcon,
-//   CursorArrowRaysIcon,
-//   FingerPrintIcon,
-//   SquaresPlusIcon,
-//   XMarkIcon,
-// } from '@heroicons/react/24/outline'
-// import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import { MenuItem, Menu } from "@mui/material";
+import { useState, useEffect } from "react";
+import MobileSideBar from "./MobileSidebar";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"; // Import the arrow down icon
 
-const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', },
-]
-const callsToAction = [
-    { name: 'Watch demo', href: '#', },
-    { name: 'Contact sales', href: '#', },
-]
-
-export default function Example() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-    return (
-        <header className="bg-white">
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-                <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" className="h-8 w-auto" />
-                    </a>
-                </div>
-                <div className="flex lg:hidden">
-                    <button
-                        type="button"
-                        onClick={() => setMobileMenuOpen(true)}
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        {/* <Bars3Icon aria-hidden="true" className="h-6 w-6" /> */}
-                    </button>
-                </div>
-                <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-                    <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                            Product
-                            {/* <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" /> */}
-                        </PopoverButton>
-
-                        <PopoverPanel
-                            transition
-                            className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-                        >
-                            <div className="p-4">
-                                {products.map((item) => (
-                                    <div
-                                        key={item.name}
-                                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                                    >
-                                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                            {/* <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" /> */}
-                                        </div>
-                                        <div className="flex-auto">
-                                            <a href={item.href} className="block font-semibold text-gray-900">
-                                                {item.name}
-                                                <span className="absolute inset-0" />
-                                            </a>
-                                            <p className="mt-1 text-gray-600">{item.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                                {callsToAction.map((item) => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                                    >
-                                        {/* <item.icon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" /> */}
-                                        {item.name}
-                                    </a>
-                                ))}
-                            </div>
-                        </PopoverPanel>
-                    </Popover>
-
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Features
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Marketplace
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Company
-                    </a>
-                </PopoverGroup>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
-                </div>
-            </nav>
-            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-                <div className="fixed inset-0 z-10" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
-                            <img
-                                alt=""
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                className="h-8 w-auto"
-                            />
-                        </a>
-                        <button
-                            type="button"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                        >
-                            <span className="sr-only">Close menu</span>
-                            {/* <XMarkIcon aria-hidden="true" className="h-6 w-6" /> */}
-                        </button>
-                    </div>
-                    <div className="mt-6 flow-root">
-                        <div className="-my-6 divide-y divide-gray-500/10">
-                            <div className="space-y-2 py-6">
-                                <Disclosure as="div" className="-mx-3">
-                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                        Product
-                                        {/* <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" /> */}
-                                    </DisclosureButton>
-                                    <DisclosurePanel className="mt-2 space-y-2">
-                                        {[...products, ...callsToAction].map((item) => (
-                                            <DisclosureButton
-                                                key={item.name}
-                                                as="a"
-                                                href={item.href}
-                                                className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                            >
-                                                {item.name}
-                                            </DisclosureButton>
-                                        ))}
-                                    </DisclosurePanel>
-                                </Disclosure>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Features
-                                </a>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Marketplace
-                                </a>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Company
-                                </a>
-                            </div>
-                            <div className="py-6">
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Log in
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </DialogPanel>
-            </Dialog>
-        </header>
-    )
+interface Page {
+  label: string;
+  value: string;
+  dropdown: boolean;
+  submenu?: {
+    label: string;
+    value: string;
+    navigate: string;
+  }[];
+  navigate: string;
 }
+
+const pages: Page[] = [
+  { label: "Home", value: "Home", dropdown: false, navigate: "/home" },
+  {
+    label: "I Can",
+    value: "I Can",
+    dropdown: true,
+    submenu: [
+      {
+        label: "Manage Dashboard",
+        value: "Dashboard",
+        navigate: "/dashboard",
+      },
+      {
+        label: "Manage Communities",
+        value: "Community",
+        navigate: "/communities",
+      },
+      {
+        label: "Manage Subscriptions",
+        value: "Subscriptions",
+        navigate: "/subscriptions",
+      },
+      { label: "Manage Payments", value: "Payments", navigate: "/payments" },
+      { label: "Manage Members", value: "Members", navigate: "/members" },
+      { label: "Manage Posts", value: "Posts", navigate: "/posts" },
+    ],
+    navigate: "/features1",
+  },
+  {
+    label: "I am",
+    value: "I am",
+    dropdown: true,
+    submenu: [
+      {
+        label: "An Entrepreneur",
+        value: "An Entrepreneur",
+        navigate: "/business",
+      },
+      { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
+      { label: "A Brand", value: "A Brand", navigate: "/brand" },
+      {
+        label: "A Wellness",
+        value: "A Wellness",
+        navigate: "/wellness",
+      },
+      {
+        label: "A Teacher",
+        value: "A Teacher",
+        navigate: "/teacher",
+      },
+    ],
+    navigate: "",
+  },
+  {
+    label: "Pricing",
+    value: "Pricing",
+    dropdown: false,
+    navigate: "/contact-us",
+  },
+  {
+    label: "About Us",
+    value: "About Us",
+    dropdown: false,
+    navigate: "/about-us",
+  },
+  {
+    label: "Contact Us",
+    value: "Contact Us",
+    dropdown: false,
+    navigate: "/contact-us",
+  },
+];
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [hoveredPage, setHoveredPage] = useState<string | null>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Track anchor element for submenu
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleGetStartedClick = () => {
+    window.location.href = "https://admin.onecommunn.com/";
+  };
+
+  const handleMouseEnter = (
+    event: React.MouseEvent<HTMLElement>,
+    page: Page
+  ) => {
+    if (page.dropdown) {
+      setHoveredPage(page.value);
+      setAnchorEl(event.currentTarget); // Set the anchor element here
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredPage(null);
+    setAnchorEl(null); // Clear the anchor element
+  };
+
+  const handlePageChange = (navigateTo: string) => {
+    navigate(navigateTo);
+  };
+
+  return (
+    <>
+      <AppBar
+        position="sticky"
+        sx={{
+          backgroundColor: scrolled ? "white" : "transparent",
+          boxShadow: scrolled ? "0px 4px 12px rgba(0, 0, 0, 0.1)" : "none",
+          p: 1,
+          transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+        }}
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box component="a" href="/" sx={{ width: "15%" }}>
+              <Box
+                component="img"
+                src={require("../Assets/Images/Logo.png")}
+                alt="Logo"
+                sx={{
+                  width: "100%",
+                  display: { xs: "none", sm: "none", md: "block" },
+                }}
+              />
+            </Box>
+            <Box
+              component="img"
+              src={require("../Assets/Images/Logo.png")}
+              alt="Logo"
+              sx={{
+                width: "50%",
+                display: { xs: "block", sm: "block", md: "none" },
+              }}
+            />
+
+            {/* For mobile sidebar */}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                justifyContent: "flex-end",
+              }}
+            >
+              <MobileSideBar />
+            </Box>
+
+            {/* For Desktop Nav */}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex", justifyContent: "center" },
+              }}
+            >
+              {pages.map((page) => (
+                <Box
+                  key={page.value}
+                  onMouseEnter={(event) => handleMouseEnter(event, page)} // Pass the event and page here
+                  onMouseLeave={handleMouseLeave}
+                  sx={{ position: "relative", transition: "all 0.3s ease" }} // Smooth hover effect
+                >
+                  <a href={page.navigate} style={{ textDecoration: "none" }}>
+                    <Button
+                      sx={{
+                        my: 2,
+                        color: "#3C3C3C",
+                        fontFamily: "Montserrat",
+                        fontWeight: "bold",
+                        ml: 3,
+                        mr: 3,
+                        display: "flex",
+                        alignItems: "center",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {page.label}
+                      {page.dropdown && (
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            ml: 1,
+                            transition: "transform 0.3s ease",
+                            transform:
+                              hoveredPage === page.value
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)", // Arrow rotation
+                          }}
+                        />
+                      )}
+                    </Button>
+                  </a>
+
+                  {/* Submenu */}
+                  {hoveredPage === page.value && page.submenu && (
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl && hoveredPage === page.value)}
+                      onClose={handleMouseLeave}
+                      MenuListProps={{ onMouseLeave: handleMouseLeave }}
+                      sx={{
+                        mt: "-10px",
+                        borderRadius: "30px",
+                        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {page.submenu.map((submenuItem) => (
+                        <a
+                          href={submenuItem.navigate}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <MenuItem
+                            key={submenuItem.value}
+                            // onClick={() =>
+                            //   handlePageChange(submenuItem.navigate)
+                            // }
+                            sx={{
+                              fontFamily: "Montserrat",
+                              fontSize: "15px",
+                              "&:hover": {
+                                backgroundColor: "#F1F1F1",
+                              },
+                            }}
+                          >
+                            {submenuItem.label}
+                          </MenuItem>
+                        </a>
+                      ))}
+                    </Menu>
+                  )}
+                </Box>
+              ))}
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              <Button
+                onClick={handleGetStartedClick}
+                variant="contained"
+                sx={{
+                  fontFamily: "Montserrat",
+                  textTransform: "capitalize",
+                  backgroundColor: "#2952A2",
+                  borderRadius: "30px",
+                  display: { xs: "none", sm: "none", md: "block" },
+                  "&:hover": {
+                    backgroundColor: "#50A1CA",
+                    cursor: "pointer",
+                    border: "none",
+                  },
+                }}
+              >
+                Get Started for Free
+              </Button>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
+  );
+};
+
+export default Header;

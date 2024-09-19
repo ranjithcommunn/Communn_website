@@ -24,12 +24,13 @@ export const Faq = () => {
     <Box id="services" sx={{ mt: 5 }}>
       <Typography
         sx={{
-          fontSize: { xs: "14px", md: "25px" },
+          fontSize: { xl: "30px", lg: "30px", xs: "20px", sm: "20px" },
           fontWeight: 700,
-          color: "#000000",
+          color: "#2952A2",
           fontFamily: "Montserrat",
           mb: 5,
           mt: 2,
+          textAlign: "center",
         }}
       >
         Frequently Asked Questions
@@ -59,9 +60,11 @@ export const Faq = () => {
                   width: "100%",
                   marginBottom: "15px",
                   flexDirection: "column",
+                  
                 }}
               >
                 <AccordionSummary
+                
                   expandIcon={
                     expanded === `panel${index}` ? (
                       <IndeterminateCheckBoxRoundedIcon
@@ -71,12 +74,12 @@ export const Faq = () => {
                       <AddBoxRoundedIcon sx={{ color: "#2A53A2" }} />
                     )
                   }
-                  sx={{ px: "20px" }}
+                  sx={{ px: "20px", height:"10vh" }}
                 >
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: "12px", md: "14px" },
+                      fontSize: { xs: "12px", md: "16px" },
                       color: "#000000",
                       fontFamily: "Montserrat",
                     }}
@@ -88,7 +91,7 @@ export const Faq = () => {
                   <Typography
                     sx={{
                       fontSize: { xs: "12px", md: "14px" },
-                      color: "#6F6C90",
+                      color: "#000000",
                       fontFamily: "Montserrat",
                     }}
                   >

@@ -1,6 +1,6 @@
 import Features from "../../Components/Features"
 import SEO from "../../Components/Seo"
-import Banner1 from "../../Assets/Images/Features/Dashboard/1.webp"
+import Banner1 from "../../Assets/Images/Features/Post/1.webp"
 import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 
@@ -9,68 +9,63 @@ import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 const featuresData = [
     {
-        title: "Strategic Decision-Making",
-        description: "Visualize member engagement, posts, transactions, and more. Take data-driven actions to enhance your community's experience.",
+        title: "Empower Members as Contributors",
+        description: "Create a knowledge-rich community by allowing members to share their insights, tips, and experiences, fostering an engaging hub of shared expertise.",
         image: require("../../Assets/Images/Features/Dashboard/1.png")
     },
     {
-        title: "Track Growth",
-        description: "Monitor community health with easy-to-understand metrics. Compare trends, identify spikes, and strategize for consistent growth.",
+        title: "Quality Control in Your Hands",
+        description: "Ensure only relevant and valuable content is showcased. Grant admin-exclusive posting rights or extend it to members. Admins can curate and maintain the community's essence.",
         image: require("../../Assets/Images/Features/Dashboard/2.png")
     },
     {
-        title: "Tailored Strategies",
-        description: "Understand visitor sources, focus on specific communities, and filter by dates. Craft personalized approaches for maximum impact.",
+        title: "Insights and Oversight for Admins",
+        description: "Admins monitor content, manage posts, and adhere to community guidelines, ensuring content quality and engagement through detailed reporting.",
         image: require("../../Assets/Images/Features/Dashboard/3.png")
     },
 ]
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
+        title: "Empowerment through Sharing",
         description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
-        image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
+            "Picture this: You're an admin with multiple communities. With our smart filters, effortlessly navigate through your communities and find exactly what you need. No more hunting, just swift access.",
+        image: require("../../Assets/Images/Features/Post/2.webp"),
     },
     {
-        title: "Connecting and Collaborating",
+        title: "Admin's Watchful Eye",
         description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
-        image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
+            "Admins use detailed reports for content oversight, ensuring compliance with guidelines and maintaining quality.",
+        image: require("../../Assets/Images/Features/Post/3.webp"),
     },
     {
-        title: "Earning Through Passion",
+        title: "Boost Engagement, Expand Reach",
         description:
-            "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
-        image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
+            "Admins enable every member to post, maximizing engagement. With 100% reach, your community's value amplifies, sparking lively discussions and sharing of diverse perspectives.",
+        image: require("../../Assets/Images/Features/Post/4.webp"),
     },
     {
-        title: "Empowering the Community",
+        title: "Community Empowerment & Resolution",
         description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
-        image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
+            " Empower members to report posts for moderation. Admins analyze reported content, taking swift actions to maintain a harmonious, productive environment.",
+        image: require("../../Assets/Images/Features/Post/5.webp"),
     },
     {
-        title: "Analytics for Growth",
+        title: "Quality Assurance & Flexibility",
         description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
-        image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
+            "Admins can make posts inactive to preserve history or delete them for a clean slate. Edits and content management ensure a dynamic, evolving community space. This means every piece of content adds value, ensuring a meaningful experience for everyone.",
+        image: require("../../Assets/Images/Features/Post/6.webp"),
     },
-    {
-        title: "Beyond Boundaries",
-        description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
-        image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
-    },
+    
 ];
 
 
 
 
 
-const sectionTitle = "Access real-time insights with our"
-const sectionSubTitle = "Dashboard"
-const sectionHeading = "Empowering Decisions with Insights: Your Communn Dashboard"
+const sectionTitle = "Streamline content tasks with"
+const sectionSubTitle = "Posts Management"
+const sectionHeading = "Effortless Community Content Management"
 
 
 export const Post = () => {
@@ -79,7 +74,7 @@ export const Post = () => {
 
     return (
         <>
-            <SEO title="DashBoard - Onecommunn" />
+            <SEO title="Post - Onecommunn" />
             <Features
                 features={featuresData}
                 featureData={dashboardData}

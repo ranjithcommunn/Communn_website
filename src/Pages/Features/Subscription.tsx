@@ -1,6 +1,6 @@
 import Features from "../../Components/Features"
 import SEO from "../../Components/Seo"
-import Banner1 from "../../Assets/Images/Features/Dashboard/1.webp"
+import Banner1 from "../../Assets/Images/Features/Plans/1.webp"
 import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 
@@ -9,58 +9,59 @@ import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 const featuresData = [
     {
-        title: "Strategic Decision-Making",
-        description: "Visualize member engagement, posts, transactions, and more. Take data-driven actions to enhance your community's experience.",
+        title: "Plan Personalization",
+        description: "Craft plans that match your community's unique essence. Define costs, durations, and billing frequencies for plans that resonate with every member.",
         image: require("../../Assets/Images/Features/Dashboard/1.png")
     },
     {
-        title: "Track Growth",
-        description: "Monitor community health with easy-to-understand metrics. Compare trends, identify spikes, and strategize for consistent growth.",
+        title: "Membership Insights",
+        description: "Track who's subscribed to each plan, ensuring you stay connected with your community's evolving needs.",
         image: require("../../Assets/Images/Features/Dashboard/2.png")
     },
     {
-        title: "Tailored Strategies",
-        description: "Understand visitor sources, focus on specific communities, and filter by dates. Craft personalized approaches for maximum impact.",
+        title: "Flexibility Redefined",
+        description: "Personalize plans to perfection. Offer exclusive discounts, flexible durations, and varied billing cycles for a subscription journey that suits all preferences.",
         image: require("../../Assets/Images/Features/Dashboard/3.png")
     },
 ]
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
-        description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
-        image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
+        title: "Diverse Subscription Models",
+        description:"Onecommunn provides flexible subscription options, including monthly, annual, and one-time plans.",
+        image: require("../../Assets/Images/Features/Plans/2.webp"),
     },
     {
-        title: "Connecting and Collaborating",
-        description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
-        image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
+        title: "Hassle-Free Payments",
+        description: "Say goodbye to the headache of handling payments manually. Communn integrates with secure payment gateways, ensuring seamless and secure transactions for both you and your subscribers.",
+        image: require("../../Assets/Images/Features/Plans/3.webp"),
     },
     {
-        title: "Earning Through Passion",
-        description:
-            "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
-        image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
+        title: "Customizable Plans",
+        description:"Tailor your subscription plans to meet your audience's needs. Set different price points, durations, and benefits to cater to a wide range of subscribers.",
+        image: require("../../Assets/Images/Features/Plans/4.webp"),
     },
     {
-        title: "Empowering the Community",
-        description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
-        image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
+        title: "Automated Billing",
+        description:"Forget about chasing down payments. Communn automates billing, ensuring your subscribers are charged accurately and on time. It's effortless revenue generation at your fingertips.",
+        image: require("../../Assets/Images/Features/Plans/5.webp"),
     },
     {
-        title: "Analytics for Growth",
-        description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
-        image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
+        title: "Membership Tiers",
+        description:"Create multiple subscription tiers, each offering unique benefits. This encourages subscribers to choose a plan that aligns with their preferences, giving them a sense of exclusivity.",
+        image: require("../../Assets/Images/Features/Plans/6.webp"),
     },
     {
-        title: "Beyond Boundaries",
+        title: "Subscriber Insights",
         description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
-        image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
+            "Gain valuable insights into your subscribers' preferences and behaviors. Understand what content or perks resonate most, allowing you to fine-tune your offerings for maximum engagement.",
+        image: require("../../Assets/Images/Features/Plans/7.webp"),
+    },
+    {
+        title: "Notifications and Reminders",
+        description:
+            "Keep your subscribers informed and engaged with automated notifications and reminders. Notify them about upcoming payments, new content releases, or exclusive events.",
+        image: require("../../Assets/Images/Features/Plans/8.webp"),
     },
 ];
 
@@ -68,9 +69,9 @@ const dashboardData = [
 
 
 
-const sectionTitle = "Access real-time insights with our"
-const sectionSubTitle = "Dashboard"
-const sectionHeading = "Empowering Decisions with Insights: Your Communn Dashboard"
+const sectionTitle = "Customize subscriptions with"
+const sectionSubTitle = "Subscription Management"
+const sectionHeading = "Empowering Subscription Management: Tailor-Made Plans for Community Success"
 
 
 export const Subscription = () => {
@@ -79,7 +80,7 @@ export const Subscription = () => {
 
     return (
         <>
-            <SEO title="DashBoard - Onecommunn" />
+            <SEO title="Subscriptions   - Onecommunn" />
             <Features
                 features={featuresData}
                 featureData={dashboardData}

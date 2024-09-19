@@ -27,41 +27,35 @@ const featuresData = [
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
+        title: "Member Engagement on Display",
         description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
-        image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
+            "A vibrant community thrives on engagement. The Dashboard offers a bird's-eye view of member interactions, helping admins understand what's buzzing and what's not.",
+        image: require("../../Assets/Images/Features/Dashboard/2.webp"),
     },
     {
-        title: "Connecting and Collaborating",
+        title: "Numbers that Speak",
         description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
-        image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
+            "See how your community is progressing. Compare current metrics with the previous month's stats. With increase or decrease percentages, you'll gauge your community's direction with clarity.",
+        image: require("../../Assets/Images/Features/Dashboard/3.webp"),
     },
     {
-        title: "Earning Through Passion",
+        title: "Comparative Analysis",
         description:
             "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
-        image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
+        image: require("../../Assets/Images/Features/Dashboard/4.webp"),
     },
     {
-        title: "Empowering the Community",
-        description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
-        image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
+        title: "Visitor Insights",
+        description:"Know your audience. The Dashboard lets you peek into the origins of your visitors. Understand where they're coming from and tailor your strategies accordingly.",
+        image: require("../../Assets/Images/Features/Dashboard/5.webp"),
     },
     {
-        title: "Analytics for Growth",
+        title: "Customization at Your Fingertips",
         description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
-        image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
+            "Filter the data to your liking. Focus on specific communities, narrow down by dates, and refine your insights.",
+        image: require("../../Assets/Images/Features/Dashboard/6.webp"),
     },
-    {
-        title: "Beyond Boundaries",
-        description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
-        image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
-    },
+    
 ];
 
 

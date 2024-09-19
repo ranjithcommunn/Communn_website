@@ -1,6 +1,6 @@
 import Features from "../../Components/Features"
 import SEO from "../../Components/Seo"
-import Banner1 from "../../Assets/Images/Features/Dashboard/1.webp"
+import Banner1 from "../../Assets/Images/Features/Community/1.webp"
 import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 
@@ -9,57 +9,52 @@ import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 const featuresData = [
     {
-        title: "Strategic Decision-Making",
-        description: "Visualize member engagement, posts, transactions, and more. Take data-driven actions to enhance your community's experience.",
+        title: "Admin Convenience",
+        description: "Easily manage and access your communities from a centralized list. Edit profiles, create new communities, and ensure accurate representation.",
         image: require("../../Assets/Images/Features/Dashboard/1.png")
     },
     {
-        title: "Track Growth",
-        description: "Monitor community health with easy-to-understand metrics. Compare trends, identify spikes, and strategize for consistent growth.",
+        title: "Instant Community landing page",
+        description: "Boost community visibility with custom branding and a dedicated website at onecommunn.com/communityname, offering free marketing to all.",
         image: require("../../Assets/Images/Features/Dashboard/2.png")
     },
     {
-        title: "Tailored Strategies",
-        description: "Understand visitor sources, focus on specific communities, and filter by dates. Craft personalized approaches for maximum impact.",
+        title: "Create new communities",
+        description: "Unleash your creativity with unlimited community creation. Communn's platform empowers you to curate spaces that match your vision.",
         image: require("../../Assets/Images/Features/Dashboard/3.png")
     },
 ]
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
-        description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
+        title: "Organized Command Center",
+        description:"Seamlessly manage all your communities from one spot. This unified dashboard brings ease to your multitasking, letting you efficiently navigate through your various community domains.",
         image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
     },
     {
-        title: "Connecting and Collaborating",
-        description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
+        title: "Vibrant Community Profiles",
+        description: "Breathe life into your community's identity. Craft captivating profiles by uploading attention-grabbing logos, banners, and comprehensive descriptions. Share your community's essence, aspirations, and services, painting a vivid picture for your members.",
         image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
     },
     {
-        title: "Earning Through Passion",
-        description:
-            "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
+        title: "Unique Community Websites",
+        description: " Every community deserves a spotlight. With Communn, each community receives its dedicated virtual haven at onecommunn.com/communityname. An instant web address to flaunt your community's distinctive identity, engage members, and fuel curiosity.",
         image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
     },
     {
-        title: "Empowering the Community",
+        title: "Amplified Engagement",
         description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
+            "Empower your members with insights. As you meticulously enhance community details, you create an engaging platform. This increased engagement sparks discussions, drives participation, and fosters a sense of belonging.",
         image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
     },
     {
-        title: "Analytics for Growth",
-        description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
+        title: "Effortless Updates",
+        description: "Keep your community's details fresh and relevant. Effortlessly edit, refine, and improve your community's online presence whenever needed, ensuring your members always have the latest information.",
         image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
     },
     {
-        title: "Beyond Boundaries",
-        description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
+        title: "Personal Touch",
+        description: "Beyond the digital realm, your community's online face becomes a tangible representation. Your community members can visit and explore this personalized web space, fostering a stronger connection.",
         image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
     },
 ];
@@ -68,9 +63,9 @@ const dashboardData = [
 
 
 
-const sectionTitle = "Access real-time insights with our"
-const sectionSubTitle = "Dashboard"
-const sectionHeading = "Empowering Decisions with Insights: Your Communn Dashboard"
+const sectionTitle = "Explore communities effortlessly through"
+const sectionSubTitle = "the Community List"
+const sectionHeading = "Join us on a journey where community management becomes a breeze! 🚀"
 
 
 export const Communities = () => {
@@ -79,7 +74,7 @@ export const Communities = () => {
 
     return (
         <>
-            <SEO title="DashBoard - Onecommunn" />
+            <SEO title="Communities - Onecommunn" />
             <Features
                 features={featuresData}
                 featureData={dashboardData}

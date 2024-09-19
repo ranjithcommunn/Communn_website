@@ -1,6 +1,6 @@
 import Features from "../../Components/Features"
 import SEO from "../../Components/Seo"
-import Banner1 from "../../Assets/Images/Features/Dashboard/1.webp"
+import Banner1 from "../../Assets/Images/Features/Members/2.webp"
 import Banner2 from "../../Assets/Images/Features/Dashboard/Bg.webp"
 
 
@@ -27,40 +27,46 @@ const featuresData = [
 
 const dashboardData = [
     {
-        title: "The Spark of Inspiration",
+        title: "Filters that Unveil Clarity",
         description:
-            "Adithi, an artist and hobbyist, always wanted to share her passion for painting. She believed in the magic of connecting with like-minded individuals who appreciate her art. And that's when she stumbled upon Communn.",
-        image: require("../../Assets/Images/Usecases/Artist/A1.webp"),
+            "Picture this: You're an admin with multiple communities. With our smart filters, effortlessly navigate through your communities and find exactly what you need. No more hunting, just swift access.",
+        image: require("../../Assets/Images/Features/Members/3.webp"),
     },
     {
-        title: "Connecting and Collaborating",
+        title: "Admin Power, Admin Choices",
         description:
-            "With Communn's user-friendly interface, Adithi could easily invite fellow artists, art enthusiasts, and potential buyers to her community. This wasn't just a space for sharing; it was a platform for collaborating on projects, exchanging techniques, and even organizing virtual art shows.",
-        image: require("../../Assets/Images/Usecases/Artist/A2.webp"),
+            " Feel the empowerment as you wield the power to select communities you're an admin of, instantly generating tailored results. Manage and nurture your communities with precision, all at your fingertips.",
+        image: require("../../Assets/Images/Features/Members/4.webp"),
     },
     {
-        title: "Earning Through Passion",
+        title: "The Magic of Invitations",
         description:
-            "Communn's subscription management captured Adithi's attention. She saw the potential of turning her community into a source of income. By offering exclusive content, tutorials, and personalized art commissions through subscription tiers, she could earn while doing what she loved most.",
-        image: require("../../Assets/Images/Usecases/Artist/A3.webp"),
+            "Be a community builder, inviting new members with a click. Watch your community flourish as you welcome like-minded individuals, creating an even stronger bond.",
+        image: require("../../Assets/Images/Features/Members/5.webp"),
     },
     {
-        title: "Empowering the Community",
+        title: "Empowerment in Member Management",
         description:
-            "As Adithi's community grew, she noticed its members becoming more than just participants; they were becoming a close-knit family. She fostered an environment where constructive feedback, encouragement, and support flourished.",
-        image: require("../../Assets/Images/Usecases/Artist/A4.webp"),
+            " Become the conductor of your community orchestra. Elevate members, switch roles, and even observe their activity status. Control who stays and who thrives.",
+        image: require("../../Assets/Images/Features/Members/6.webp"),
     },
     {
-        title: "Analytics for Growth",
+        title: "Unlock Your Private Realm",
         description:
-            "With Communn's analytics, Adithi could track engagement, learn which content resonated the most, and adjust her offerings accordingly. This data-driven approach allowed her to cater to her community's preferences and aspirations.",
-        image: require("../../Assets/Images/Usecases/Artist/A5.webp"),
+            "For private communities, we're your gatekeepers. Approve requests, connect with potential members, and sculpt the perfect community for your vision.",
+        image: require("../../Assets/Images/Features/Members/7.webp"),
     },
     {
-        title: "Beyond Boundaries",
+        title: "Identity at a Glance",
         description:
-            "As Adithi's community flourished, she realized that Communn's platform wasn't just about art; it was about connections, empowerment, and unlocking hidden potential. Her journey as a community creator not only brought her financial rewards but also friendships and Artistic growth.",
-        image: require("../../Assets/Images/Usecases/Artist/A6.webp"),
+            "Elevate your members' uniqueness! Assign roles like Gym Trainer, Fitness Enthusiast, and more. Let them shine and contribute effectively within your community.",
+        image: require("../../Assets/Images/Features/Members/9.webp"),
+    },
+    {
+        title: "Warn the ones who violates community guidelines to Ensure Community Harmony",
+        description:
+            "Foster a harmonious environment with a gentle warning system that encourages respect and cooperation.",
+        image: require("../../Assets/Images/Features/Members/10.webp"),
     },
 ];
 
