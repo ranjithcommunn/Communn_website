@@ -1,27 +1,28 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import { ButtonStyle } from "./UsesCases.styles";
+import LandingForm from "./LandingForm";
 
 interface UseCasesProps {
-  pageTitle?: string;
   pageSubTitle?: string;
   pageDescription?: string;
-  meetName?: string;
-  meetDescription?: string;
-  sectionTitle?: string;
-  meetImage?: string;
-  businessHeading: string;
   banner1?: string;
   banner2?: string;
   banner3?: string;
-  businessesData?: {
-    percentage?: string;
-    name?: string;
-  }[];
+  banner4?: string;
   featureData: {
     title: string;
     description: string;
     image: string;
   }[];
+  bonus?: string;
+  bonusSubheading?: string;
+  bonusHeading1?: string;
+  bonusHeading2?: string;
+  bonusHeading3?: string;
+  bonusDescription1?: string;
+  bonusDescription2?: string;
+  bonusDescription3?: string;
+  bonusImage?: string;
   onClick: () => void;
 }
 
@@ -30,9 +31,18 @@ const LandingPage: React.FC<UseCasesProps> = ({
   banner1,
   banner2,
   banner3,
-  pageTitle,
+  banner4,
   pageDescription,
   pageSubTitle,
+  bonus,
+  bonusSubheading,
+  bonusHeading1,
+  bonusHeading2,
+  bonusHeading3,
+  bonusDescription1,
+  bonusDescription2,
+  bonusDescription3,
+  bonusImage,
   onClick,
 }) => {
   return (
@@ -63,23 +73,19 @@ const LandingPage: React.FC<UseCasesProps> = ({
                   ml: { xs: 0, md: 10 },
                   pb: 6,
                   backgroundColor: "#ffffff",
+                  alignItems: { xs: "center", md: "flex-start" },
+                  mt: { xs: 10, md: 0 },
                 }}
               >
-                <Paper sx={{ p: 5, boxShadow: "none" }}>
-                  <Typography
-                    sx={{
-                      color: "#000000",
-                      fontSize: { xs: "12px", sm: "12px", md: "20px" },
-                      fontFamily: "Montserrat",
-                      fontWeight: "bold",
-                      textTransform: "uppercase",
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                  >
-                    {pageTitle}
-                  </Typography>
+                <Paper
+                  sx={{
+                    p: 5,
+                    boxShadow: "none",
+                    alignItems: { xs: "center", md: "flex-start" },
+                    display: { xs: "flex", md: "block" },
+                    flexDirection: "column",
+                  }}
+                >
                   <Typography
                     sx={{
                       color: "#2A53A2",
@@ -99,7 +105,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
                       textAlign: { xs: "center", md: "left" },
-                      fontSize: { xs: "14px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
                       mr: { xs: 0, md: 20 },
                     }}
@@ -108,15 +114,16 @@ const LandingPage: React.FC<UseCasesProps> = ({
                   >
                     {pageDescription}
                   </Typography>
-                  <Button
-                    variant="contained"
-                    sx={ButtonStyle}
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    onClick={onClick}
-                  >
-                    Try ONECOMMUNN for Free
-                  </Button>
+                  <a href="#form">
+                    <Button
+                      variant="contained"
+                      sx={ButtonStyle}
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                    >
+                      Book a demo
+                    </Button>
+                  </a>
                 </Paper>
               </Stack>
             </Grid>
@@ -142,36 +149,40 @@ const LandingPage: React.FC<UseCasesProps> = ({
               item
               xs={6}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "contents", md: "none" },
               }}
             >
               <Box
+                data-aos="fade-up"
+                data-aos-duration="1000"
                 component={"img"}
                 src={banner3}
                 alt=""
-                sx={{ width: "120%", mt: -10, ml: { xs: 7, md: 0 } }}
+                sx={{
+                  width: "100%",
+                  mt: -10,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  ml: "auto",
+                }}
               />
             </Grid>
           </Grid>
         </Stack>
       </Box>
 
-      <Stack
+      {/* <Stack
         data-aos="fade-up"
         data-aos-duration="1000"
         sx={{
-          mt: "-500px",
+          mt: "-250px",
           alignItems: "center",
           justifyContent: "flex-start",
+          display: { xs: "none", md: "flex" },
         }}
       >
-        <Box
-          component={"img"}
-          src={require("../Assets/Images/LandingPage/Yoga/235.-Yoga 1.webp")}
-          alt=""
-          sx={{ width: "50%" }}
-        />
-      </Stack>
+        <LandingForm />
+      </Stack> */}
 
       {/* Mobile Version */}
 
@@ -183,7 +194,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
             alignContent: "center",
             justifyContent: "center",
             alignItems: "center",
-            height: { xs: "fit-content", md: "100vh" },
+            height: { xs: "fit-content", md: "85vh" },
           }}
         >
           <Stack>
@@ -239,7 +250,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                       sx={{
                         fontFamily: "Montserrat",
                         color: "#1A2D4C",
-                        fontSize: { xs: "15px", md: "16px" },
+                        fontSize: { xs: "13px", md: "15px" },
                         lineHeight: "30px",
                       }}
                       data-aos="fade-up"
@@ -261,7 +272,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
           alignContent: "center",
           justifyContent: "center",
           alignItems: "center",
-          height: { xs: "fit-content", md: "100vh" },
+          height: { xs: "fit-content", md: "85vh" },
         }}
       >
         <Stack>
@@ -272,10 +283,6 @@ const LandingPage: React.FC<UseCasesProps> = ({
             alignItems="center"
             spacing={{ xs: 2, md: 10 }}
             sx={{
-              flexDirection: {
-                xs: "column-reverse",
-                md: "row",
-              },
               pb: { md: "50px" },
             }}
           >
@@ -301,7 +308,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                     data-aos="fade-up"
                     data-aos-duration="1000"
                   >
-                    Bonus!
+                    {bonus}
                   </Typography>
                   <Typography
                     sx={{
@@ -315,13 +322,13 @@ const LandingPage: React.FC<UseCasesProps> = ({
                     data-aos="fade-up"
                     data-aos-duration="900"
                   >
-                    Get a Free Website for Your Yoga Center—A Gift from Us!
+                    {bonusSubheading}
                   </Typography>
                   <Typography
                     sx={{
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
-                      fontSize: { xs: "15px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
 
                       pb: 2,
@@ -333,20 +340,20 @@ const LandingPage: React.FC<UseCasesProps> = ({
                       component="span"
                       sx={{
                         color: "#2A53A2",
-                        fontSize: { xs: "1px", md: "18px" },
+                        fontSize: { xs: "13px", md: "15px" },
                         fontFamily: "Montserrat",
                         fontWeight: "500",
                       }}
                     >
-                      1. Showcase Your Centre:
+                      1. {bonusHeading1}:
                     </Typography>{" "}
-                    Display your classes, instructors, and facilities in style.
+                    {bonusDescription1}
                   </Typography>
                   <Typography
                     sx={{
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
-                      fontSize: { xs: "15px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
 
                       pb: 2,
@@ -358,20 +365,20 @@ const LandingPage: React.FC<UseCasesProps> = ({
                       component="span"
                       sx={{
                         color: "#2A53A2",
-                        fontSize: { xs: "1px", md: "18px" },
+                        fontSize: { xs: "13px", md: "15px" },
                         fontFamily: "Montserrat",
                         fontWeight: "500",
                       }}
                     >
-                      2.Attract New Customers:
+                      2.{bonusHeading2}:
                     </Typography>{" "}
-                    Expand your reach and bring more clients to your center.
+                    {bonusDescription2}
                   </Typography>
                   <Typography
                     sx={{
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
-                      fontSize: { xs: "15px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
 
                       pb: 2,
@@ -383,14 +390,14 @@ const LandingPage: React.FC<UseCasesProps> = ({
                       component="span"
                       sx={{
                         color: "#2A53A2",
-                        fontSize: { xs: "1px", md: "18px" },
+                        fontSize: { xs: "13px", md: "15px" },
                         fontFamily: "Montserrat",
                         fontWeight: "500",
                       }}
                     >
-                      3.Market Your Yoga Centre:
+                      3.{bonusHeading3}:
                     </Typography>{" "}
-                    Expand your reach and bring more clients to your center.
+                    {bonusDescription3}
                   </Typography>
                 </Paper>
               </Stack>
@@ -398,7 +405,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
             <Grid item xs={12} md={5} sx={{ m: { xs: 2, md: 0 } }}>
               <Box
                 component="img"
-                src={require("./../Assets/Images/LandingPage/Yoga/Group 239415.webp")}
+                src={bonusImage}
                 alt={""}
                 sx={{ width: "100%" }}
                 data-aos="fade-up"
@@ -407,8 +414,6 @@ const LandingPage: React.FC<UseCasesProps> = ({
             </Grid>
           </Grid>
         </Stack>
-
-        <Stack></Stack>
       </Box>
     </>
   );

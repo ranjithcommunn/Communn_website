@@ -75,13 +75,22 @@ const UseCases: React.FC<UseCasesProps> = ({
                   ml: { xs: 0, md: 10 },
                   pb: 6,
                   backgroundColor: "#ffffff",
+                  mt: { xs: 10, md: 0 },
                 }}
               >
-                <Paper sx={{ p: 5, boxShadow: "none" }}>
+                <Paper
+                  sx={{
+                    p: 5,
+                    boxShadow: "none",
+                    alignItems: { xs: "center", md: "flex-start" },
+                    display: { xs: "flex", md: "block" },
+                    flexDirection: "column",
+                  }}
+                >
                   <Typography
                     sx={{
                       color: "#000000",
-                      fontSize: { xs: "12px", sm: "12px", md: "20px" },
+                      fontSize: { xs: "13px", sm: "13px", md: "20px" },
                       fontFamily: "Montserrat",
                       fontWeight: "bold",
                       textTransform: "uppercase",
@@ -111,7 +120,7 @@ const UseCases: React.FC<UseCasesProps> = ({
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
                       textAlign: { xs: "center", md: "left" },
-                      fontSize: { xs: "14px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
                       mr: { xs: 0, md: 20 },
                     }}
@@ -125,7 +134,9 @@ const UseCases: React.FC<UseCasesProps> = ({
                     sx={ButtonStyle}
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    onClick={onClick}
+                    onClick={() =>
+                      window.open("https://admin.onecommunn.com/", "_blank")
+                    }
                   >
                     Try COMMUNN for Free
                   </Button>
@@ -154,14 +165,22 @@ const UseCases: React.FC<UseCasesProps> = ({
               item
               xs={6}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "contents", md: "none" },
               }}
             >
               <Box
+                data-aos="fade-up"
+                data-aos-duration="1000"
                 component={"img"}
                 src={banner3}
                 alt=""
-                sx={{ width: "120%", mt: -10, ml: { xs: 7, md: 0 } }}
+                sx={{
+                  width: "100%",
+                  mt: -10,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  ml: "auto",
+                }}
               />
             </Grid>
           </Grid>
@@ -312,7 +331,7 @@ const UseCases: React.FC<UseCasesProps> = ({
                       fontFamily: "Montserrat",
                       color: "#1A2D4C",
                       textAlign: { xs: "left", md: "left" },
-                      fontSize: { xs: "14px", md: "16px" },
+                      fontSize: { xs: "13px", md: "15px" },
                       lineHeight: "30px",
                     }}
                   >
@@ -360,7 +379,7 @@ const UseCases: React.FC<UseCasesProps> = ({
             alignContent: "center",
             justifyContent: "center",
             alignItems: "center",
-            height: { xs: "fit-content", md: "100vh" },
+            height: { xs: "fit-content", md: "85vh" },
           }}
         >
           <Stack>

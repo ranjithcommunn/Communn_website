@@ -4,7 +4,10 @@ export const RefundPolicy = () => {
   return (
     <>
       <Box
-        sx={{ height: "25vh", backgroundColor: "#f2f2f2f2" }}
+        sx={{
+          height: { xs: "15vh", md: "25vh" },
+          backgroundColor: "#f2f2f2f2",
+        }}
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}

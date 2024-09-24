@@ -18,6 +18,8 @@ import { YogaTeacher } from "../Pages/UseCases/YogaTeacher";
 import { PrivacyPolicy } from "../Pages/Help/PrivacyPolicy";
 import { TermsAndCondition } from "../Pages/Help/TermsandConditions";
 import { RefundPolicy } from "../Pages/Help/RefundPolicy";
+import { Tution } from "../Pages/LandingPage/Tution";
+import { Gym } from "../Pages/LandingPage/Gym";
 
 const Routers = () => {
   return (
@@ -29,6 +31,8 @@ const Routers = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/yoga" element={<Yoga />} />
+          <Route path="/tution" element={<Tution />} />
+          <Route path="/gym" element={<Gym />} />
           <Route path="/business" element={<Business />} />
           <Route path="/home-maker" element={<HomeMaker />} />
           <Route path="/wellness" element={<Wellness />} />
@@ -43,6 +47,7 @@ const Routers = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-uses" element={<TermsAndCondition />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

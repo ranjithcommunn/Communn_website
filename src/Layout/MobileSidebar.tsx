@@ -32,36 +32,66 @@ interface menuItems {
 }
 
 const menuItems: menuItems[] = [
-  { label: 'Home', value: 'Home', dropdown: false, navigate: '/home' },
+  { label: "Home", value: "Home", dropdown: false, navigate: "/home" },
   {
-    label: 'I Can',
-    value: 'I Can',
+    label: "I Can",
+    value: "I Can",
     dropdown: true,
     submenu: [
-        { label: 'Navigate Dashboard', value: ' Dashboard', navigate: '/dashboard' },
-      { label: 'Manage Members', value: 'Members', navigate: '/members' },
-      { label: 'Manage Posts', value: 'Posts', navigate: '/post' },
-      { label: 'Manage Payments', value: 'Payments', navigate: '/payments' },
-      { label: 'Manage Subscriptions', value: 'Subscriptions', navigate: '/subscription' },
-      { label: 'Manage Communities', value: 'Community', navigate: '/communities' },
+      {
+        label: "Navigate Dashboard",
+        value: " Dashboard",
+        navigate: "/dashboard",
+      },
+      { label: "Manage Members", value: "Members", navigate: "/members" },
+      { label: "Manage Posts", value: "Posts", navigate: "/post" },
+      { label: "Manage Payments", value: "Payments", navigate: "/payments" },
+      {
+        label: "Manage Subscriptions",
+        value: "Subscriptions",
+        navigate: "/subscription",
+      },
+      {
+        label: "Manage Communities",
+        value: "Community",
+        navigate: "/communities",
+      },
     ],
-    navigate: '/features1',
+    navigate: "/features1",
   },
   {
-    label: 'I am',
-    value: 'I am',
+    label: "I am",
+    value: "I am",
     dropdown: true,
     submenu: [
-      { label: 'An Entrepreneur', value: 'An Entrepreneur', navigate: '/entrepreneur' },
-      { label: 'A Homemaker', value: 'A Homemaker', navigate: '/home' },
-      { label: 'A Teacher', value: 'A Teacher', navigate: '/brand' },
-      { label: 'A Wellness/Health Instructor', value: 'A Wellness/Health Instructor', navigate: '/wellness' },
+      {
+        label: "An Entrepreneur",
+        value: "An Entrepreneur",
+        navigate: "/business",
+      },
+      { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
+      { label: "A Teacher", value: "A Teacher", navigate: "/brand" },
+      {
+        label: "A Wellness",
+        value: "A Wellness",
+        navigate: "/wellness",
+      },
     ],
-    navigate: '',
+    navigate: "",
   },
-  { label: 'Pricing', value: 'Pricing', dropdown: false, navigate: '/pricing' },
-  { label: 'About Us', value: 'About Us', dropdown: false, navigate: '/about' },
-  { label: 'Contact Us', value: 'Contact Us', dropdown: false, navigate: '/contacts' },
+  { label: "Pricing", value: "Pricing", dropdown: false, navigate: "/pricing" },
+  {
+    label: "About Us",
+    value: "About Us",
+    dropdown: false,
+    navigate: "/about-us",
+  },
+  {
+    label: "Contact Us",
+    value: "Contact Us",
+    dropdown: false,
+    navigate: "/contact-us",
+  },
 ];
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -74,8 +104,6 @@ export default function MobileSideBar() {
     [key: string]: string | null;
   }>({});
   const navigate = useNavigate();
-;
-
   const handlePageChange = (
     value: string,
     navigateTo: string,
@@ -117,7 +145,7 @@ export default function MobileSideBar() {
   const list = (anchor: Anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 300,
         p: 2,
       }}
       role="presentation"
@@ -131,7 +159,7 @@ export default function MobileSideBar() {
         <Link to="/home  " style={{ textDecoration: "none" }}>
           <Box
             component={"img"}
-            src={require("../Assets/Images/Communn-new-logo.png")}
+            src={require("../Assets/Images/Logo.png")}
             alt=""
             sx={{ width: "60%" }}
           />
@@ -147,29 +175,35 @@ export default function MobileSideBar() {
         .filter((page) => page?.value === "Home")
         .map((page) => (
           <>
-            
-              <ListItem disablePadding sx={{ fontSize: "20px" }}>
+            <ListItem
+              disablePadding
+              sx={{ fontSize: "20px", fontFamily: "Montserrat" }}
+            >
               <ListItemButton
                 component={Link}
                 to={page.navigate}
                 onClick={toggleDrawer(anchor, false)}
+                sx={{ fontFamily: "Montserrat" }}
               >
                 <ListItemText
                   primary={page.label}
                   sx={{
-                    "& .css-10hburv-MuiTypography-root": {
-                      fontSize: "14px",
-                      color: "#515151",
-                      fontFamily: "Montserrat",
-                    },
+                    fontFamily: "Montserrat",
+                    fontSize: "14px",
+                    color: "#515151",
                   }}
                   onClick={() =>
-                    handlePageChange(page.value, page.navigate, page.value, anchor)
+                    handlePageChange(
+                      page.value,
+                      page.navigate,
+                      page.value,
+                      anchor
+                    )
                   }
                 />
               </ListItemButton>
             </ListItem>
-           
+
             <Accordion elevation={0} disableGutters>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -183,13 +217,36 @@ export default function MobileSideBar() {
                   .filter((page) => page.dropdown && page.value === "I Can")
                   .map((page) => (
                     <>
-                      <MenuItem key={page.value}>
-                        <List sx={{padding:'0px'}}>
+                      <MenuItem
+                        key={page.value}
+                        sx={{
+                          fontFamily: "Montserrat",
+                          "& .MuiTypography-root": {
+                            fontFamily: "Montserrat",
+                          },
+                        }}
+                      >
+                        <List
+                          sx={{
+                            padding: "0px",
+                            fontFamily: "Montserrat",
+                            "& .MuiTypography-root": {
+                              fontFamily: "Montserrat",
+                            },
+                          }}
+                        >
                           {page.submenu &&
                             page.submenu.map((submenuItem) => (
                               <>
                                 <ListItem
-                                  sx={{ "&:hover": { backgroundColor: "" },padding:'0px' }}
+                                  sx={{
+                                    fontFamily: "Montserrat",
+                                    "& .MuiTypography-root": {
+                                      fontFamily: "Montserrat",
+                                    },
+                                    "&:hover": { backgroundColor: "" },
+                                    padding: "0px",
+                                  }}
                                   key={submenuItem.value}
                                   onClick={() => {
                                     handlePageChange(
@@ -198,7 +255,6 @@ export default function MobileSideBar() {
                                       page.value,
                                       anchor
                                     );
-                                    
                                   }}
                                 >
                                   <ListItemButton
@@ -210,7 +266,11 @@ export default function MobileSideBar() {
                                       primary={submenuItem.label}
                                       sx={{
                                         color: "#515151",
-                      fontFamily: "Montserrat", fontSize: "14px",
+                                        fontFamily: "Montserrat",
+                                        fontSize: "14px",
+                                        "& .MuiTypography-root": {
+                                          fontFamily: "Montserrat",
+                                        },
                                       }}
                                     />
                                   </ListItemButton>{" "}
@@ -236,13 +296,33 @@ export default function MobileSideBar() {
                   .filter((page) => page.dropdown && page.value === "I am")
                   .map((page) => (
                     <>
-                      <MenuItem key={page.value}>
-                        <List sx={{padding:'0px'}}>
+                      <MenuItem
+                        key={page.value}
+                        sx={{
+                          fontFamily: "Montserrat",
+                          "& .MuiTypography-root": {
+                            fontFamily: "Montserrat",
+                          },
+                        }}
+                      >
+                        <List
+                          sx={{
+                            padding: "0px",
+                            fontFamily: "Montserrat",
+                            "& .MuiTypography-root": {
+                              fontFamily: "Montserrat",
+                            },
+                          }}
+                        >
                           {page.submenu &&
                             page.submenu.map((submenuItem) => (
                               <>
                                 <ListItem
-                                  sx={{ "&:hover": { backgroundColor: "" },padding:'0px' }}
+                                  sx={{
+                                    fontFamily: "Montserrat",
+                                    "&:hover": { backgroundColor: "" },
+                                    padding: "0px",
+                                  }}
                                   key={submenuItem.value}
                                   onClick={() => {
                                     handlePageChange(
@@ -251,7 +331,6 @@ export default function MobileSideBar() {
                                       page.value,
                                       anchor
                                     );
-                                    
                                   }}
                                 >
                                   <ListItemButton
@@ -263,7 +342,8 @@ export default function MobileSideBar() {
                                       primary={submenuItem.label}
                                       sx={{
                                         color: "#515151",
-                      fontFamily: "Montserrat", fontSize: "14px",
+                                        fontFamily: "Montserrat",
+                                        fontSize: "14px",
                                       }}
                                     />
                                   </ListItemButton>{" "}
@@ -279,32 +359,44 @@ export default function MobileSideBar() {
           </>
         ))}
       <Divider />
- 
+
       {menuItems
         .filter((page) => !page.dropdown && page?.value !== "Home")
         .map((page) => (
-          <ListItem disablePadding sx={{ fontSize: "20px" }}>
-              <ListItemButton
-                component={Link}
-                to={page.navigate}
-                onClick={toggleDrawer(anchor, false)}
-              >
-                <ListItemText
-                  primary={page.label}
-                  sx={{
-                    "& .css-10hburv-MuiTypography-root": {
-                      fontSize: "14px",
-                      color: "#515151",
-                      fontFamily: "Montserrat",
-                     
-                    },
-                  }}
-                  onClick={() =>
-                    handlePageChange(page.value, page.navigate, page.value, anchor)
-                  }
-                />
-              </ListItemButton>
-            </ListItem>
+          <ListItem
+            disablePadding
+            sx={{
+              fontSize: "20px",
+              "& .MuiTypography-root": {
+                fontFamily: "Montserrat",
+              },
+            }}
+          >
+            <ListItemButton
+              component={Link}
+              to={page.navigate}
+              onClick={toggleDrawer(anchor, false)}
+            >
+              <ListItemText
+                primary={page.label}
+                sx={{
+                  "& .MuiTypography-root": {
+                    fontSize: "14px",
+                    color: "#515151",
+                    fontFamily: "Montserrat",
+                  },
+                }}
+                onClick={() =>
+                  handlePageChange(
+                    page.value,
+                    page.navigate,
+                    page.value,
+                    anchor
+                  )
+                }
+              />
+            </ListItemButton>
+          </ListItem>
         ))}
 
       <Stack

@@ -4,11 +4,11 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
 import { MenuItem, Menu } from "@mui/material";
 import { useState, useEffect } from "react";
 import MobileSideBar from "./MobileSidebar";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"; // Import the arrow down icon
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { NavLink } from "react-router-dom";
 
 interface Page {
   label: string;
@@ -29,11 +29,7 @@ const pages: Page[] = [
     value: "I Can",
     dropdown: true,
     submenu: [
-      {
-        label: "Manage Dashboard",
-        value: "Dashboard",
-        navigate: "/dashboard",
-      },
+      { label: "Manage Dashboard", value: "Dashboard", navigate: "/dashboard" },
       {
         label: "Manage Communities",
         value: "Community",
@@ -62,16 +58,8 @@ const pages: Page[] = [
       },
       { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
       { label: "A Brand", value: "A Brand", navigate: "/brand" },
-      {
-        label: "A Wellness",
-        value: "A Wellness",
-        navigate: "/wellness",
-      },
-      {
-        label: "A Teacher",
-        value: "A Teacher",
-        navigate: "/teacher",
-      },
+      { label: "A Wellness", value: "A Wellness", navigate: "/wellness" },
+      { label: "A Teacher", value: "A Teacher", navigate: "/teacher" },
     ],
     navigate: "",
   },
@@ -99,7 +87,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredPage, setHoveredPage] = useState<string | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Track anchor element for submenu
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,27 +103,19 @@ const Header = () => {
     };
   }, []);
 
-  const handleGetStartedClick = () => {
-    window.location.href = "https://admin.onecommunn.com/";
-  };
-
   const handleMouseEnter = (
     event: React.MouseEvent<HTMLElement>,
     page: Page
   ) => {
     if (page.dropdown) {
       setHoveredPage(page.value);
-      setAnchorEl(event.currentTarget); // Set the anchor element here
+      setAnchorEl(event.currentTarget);
     }
   };
 
   const handleMouseLeave = () => {
     setHoveredPage(null);
-    setAnchorEl(null); // Clear the anchor element
-  };
-
-  const handlePageChange = (navigateTo: string) => {
-    navigate(navigateTo);
+    setAnchorEl(null);
   };
 
   return (
@@ -168,17 +147,19 @@ const Header = () => {
               src={require("../Assets/Images/Logo.png")}
               alt="Logo"
               sx={{
-                width: "50%",
+                width: "55%",
                 display: { xs: "block", sm: "block", md: "none" },
+                ml: -2,
+                alignSelf: "flex-start",
               }}
             />
 
             {/* For mobile sidebar */}
             <Box
               sx={{
-                flexGrow: 1,
                 display: { xs: "flex", md: "none" },
                 justifyContent: "flex-end",
+                ml: 8,
               }}
             >
               <MobileSideBar />
@@ -194,11 +175,15 @@ const Header = () => {
               {pages.map((page) => (
                 <Box
                   key={page.value}
-                  onMouseEnter={(event) => handleMouseEnter(event, page)} // Pass the event and page here
+                  onMouseEnter={(event) => handleMouseEnter(event, page)}
                   onMouseLeave={handleMouseLeave}
-                  sx={{ position: "relative", transition: "all 0.3s ease" }} // Smooth hover effect
+                  sx={{ position: "relative", transition: "all 0.3s ease" }}
                 >
-                  <a href={page.navigate} style={{ textDecoration: "none" }}>
+                  <NavLink
+                    to={page.navigate}
+                    style={{ textDecoration: "none" }}
+                    onClick={() => window.scrollTo(0, 0)} // Scroll to top
+                  >
                     <Button
                       sx={{
                         my: 2,
@@ -210,6 +195,7 @@ const Header = () => {
                         display: "flex",
                         alignItems: "center",
                         cursor: "pointer",
+                        fontSize: "14px",
                       }}
                     >
                       {page.label}
@@ -221,12 +207,12 @@ const Header = () => {
                             transform:
                               hoveredPage === page.value
                                 ? "rotate(180deg)"
-                                : "rotate(0deg)", // Arrow rotation
+                                : "rotate(0deg)",
                           }}
                         />
                       )}
                     </Button>
-                  </a>
+                  </NavLink>
 
                   {/* Submenu */}
                   {hoveredPage === page.value && page.submenu && (
@@ -236,25 +222,28 @@ const Header = () => {
                       onClose={handleMouseLeave}
                       MenuListProps={{ onMouseLeave: handleMouseLeave }}
                       sx={{
-                        mt: "-10px",
+                        mt: "-5px",
                         borderRadius: "30px",
                         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
                         overflow: "hidden",
+                        "& .MuiPaper-root": {
+                          borderRadius: "20px",
+                          padding: "10px",
+                        },
                       }}
                     >
                       {page.submenu.map((submenuItem) => (
-                        <a
-                          href={submenuItem.navigate}
+                        <NavLink
+                          to={submenuItem.navigate}
                           style={{ textDecoration: "none" }}
+                          key={submenuItem.value}
+                          onClick={() => window.scrollTo(0, 0)} // Ensure submenu scrolls to top
                         >
                           <MenuItem
-                            key={submenuItem.value}
-                            // onClick={() =>
-                            //   handlePageChange(submenuItem.navigate)
-                            // }
                             sx={{
                               fontFamily: "Montserrat",
-                              fontSize: "15px",
+                              fontSize: "14px",
+                              borderRadius: "10px",
                               "&:hover": {
                                 backgroundColor: "#F1F1F1",
                               },
@@ -262,7 +251,7 @@ const Header = () => {
                           >
                             {submenuItem.label}
                           </MenuItem>
-                        </a>
+                        </NavLink>
                       ))}
                     </Menu>
                   )}
@@ -272,7 +261,9 @@ const Header = () => {
 
             <Box sx={{ flexGrow: 0 }}>
               <Button
-                onClick={handleGetStartedClick}
+                onClick={() =>
+                  window.open("https://admin.onecommunn.com/", "_blank")
+                }
                 variant="contained"
                 sx={{
                   fontFamily: "Montserrat",

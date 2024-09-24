@@ -1,8 +1,65 @@
 import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import background from "../../Assets/Images/background.png";
 import { Field, Title } from "./Contact.styles";
+import { ChangeEvent, useState } from "react";
+import emailjs from "emailjs-com";
+import { useSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
+
+interface IFormData {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  comments: string;
+}
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState<IFormData>({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    comments: "",
+  });
+
+  const [, setLoading] = useState(false);
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await emailjs.send(
+        "service_lq5df2h",
+        "template_g35kxjh",
+        {
+          ...formData,
+        },
+        "KcCSNBDRR_fStNgee"
+      );
+      setFormData({ fullName: "", email: "", phoneNumber: "", comments: "" });
+      enqueueSnackbar("Email sent successfully!", {
+        variant: "success",
+        autoHideDuration: 3000,
+      });
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+    } catch (error) {
+      enqueueSnackbar("Failed to send email.");
+      console.error("Email sending error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Stack>
@@ -146,7 +203,7 @@ const ContactUs = () => {
                     ml: { xs: 5, md: 0 },
                   }}
                 >
-                  <Stack>
+                  <Stack component="form" onSubmit={sendEmail}>
                     <Typography
                       sx={{
                         color: "#2952A2",
@@ -157,14 +214,17 @@ const ContactUs = () => {
                         textAlign: "center",
                       }}
                     >
-                      get in touch
+                      get in touch
                     </Typography>
-                    <Typography sx={Title}>Full Name</Typography>
+                    <Typography sx={Title}>Name</Typography>
                     <TextField
-                      type="name"
-                      label="Enter Your Full Name"
+                      name="fullName"
+                      type="text"
+                      label="Name"
                       variant="outlined"
                       sx={Field}
+                      onChange={handleChange}
+                      value={formData.fullName}
                       InputLabelProps={{
                         sx: {
                           fontFamily: "Montserrat",
@@ -175,10 +235,13 @@ const ContactUs = () => {
 
                     <Typography sx={Title}>Email</Typography>
                     <TextField
-                      type="mail"
-                      label="Enter Your Email Address"
+                      name="email"
+                      type="email"
+                      label="Email"
                       variant="outlined"
                       sx={Field}
+                      onChange={handleChange}
+                      value={formData.email}
                       InputLabelProps={{
                         sx: {
                           fontFamily: "Montserrat",
@@ -187,12 +250,15 @@ const ContactUs = () => {
                       }}
                     />
 
-                    <Typography sx={Title}>Phone Number</Typography>
+                    <Typography sx={Title}>Mobile Number</Typography>
                     <TextField
+                      name="phoneNumber"
                       type="tel"
-                      label="Enter Your Phone Number"
+                      label="Mobile Number"
                       variant="outlined"
                       sx={Field}
+                      onChange={handleChange}
+                      value={formData.phoneNumber}
                       InputLabelProps={{
                         sx: {
                           fontFamily: "Montserrat",
@@ -200,15 +266,16 @@ const ContactUs = () => {
                         },
                       }}
                     />
-
-                    <Typography sx={Title}>Comments</Typography>
-
+                    <Typography sx={Title}>Message</Typography>
                     <TextField
+                      name="comments"
                       type="text"
-                      label="Enter Your Message "
+                      label="Message"
                       multiline
                       rows={3}
                       variant="outlined"
+                      onChange={handleChange}
+                      value={formData.comments}
                       InputLabelProps={{
                         sx: {
                           fontFamily: "Montserrat",
@@ -217,6 +284,7 @@ const ContactUs = () => {
                       }}
                     />
                     <Button
+                      type="submit"
                       variant="contained"
                       sx={{
                         fontFamily: "Montserrat",
@@ -225,12 +293,6 @@ const ContactUs = () => {
                         borderRadius: "10px",
                         p: 2,
                         mt: 5,
-                        display: { xs: "block", sm: "block", md: "block" },
-                        "&:hover": {
-                          backgroundColor: "#000000", // Background color on hover
-                          cursor: "pointer",
-                          border: "none",
-                        },
                       }}
                     >
                       Submit

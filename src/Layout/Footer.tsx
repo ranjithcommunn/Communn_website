@@ -64,6 +64,8 @@ const Footer = () => {
               color: "#2952A2",
               textAlign: "center",
             }}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             Still have questions ?
           </Typography>
@@ -78,6 +80,8 @@ const Footer = () => {
               pr: 5,
               display: { xs: "block", md: "none" },
             }}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             If you cannot find answer to your question in our FAQ, you can
             always CONTACT US. We will <br></br>answer to you shortly.
@@ -86,12 +90,14 @@ const Footer = () => {
           <Typography
             sx={{
               fontFamily: "Montserrat",
-              fontSize: { xs: "12px", md: "15px" },
+              fontSize: { xs: "13px", md: "15px" },
               fontWeight: 500,
               color: "#6F6C90",
               textAlign: "center",
               display: { xs: "none", md: "block" },
             }}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             If you cannot find answer to your question in our FAQ, you can
             always<br></br> CONTACT US. We will answer to you shortly.
@@ -113,6 +119,8 @@ const Footer = () => {
                   color: "white",
                 },
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Contact Us
             </Button>
@@ -147,6 +155,8 @@ const Footer = () => {
                 color: "#000000",
                 textAlign: "center",
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Empower Your Community, Elevate Your Experience
             </Typography>
@@ -169,32 +179,36 @@ const Footer = () => {
                   border: "none",
                 },
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Get started
             </Button>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/contact-us"
-              sx={{
-                fontFamily: "Montserrat",
-                textTransform: "capitalize",
-                backgroundColor: "White",
-                borderRadius: "100px",
-                color: "black",
-                width: 200,
-                ml: 2,
+            <a href="/contact-us" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  fontFamily: "Montserrat",
+                  textTransform: "capitalize",
+                  backgroundColor: "White",
+                  borderRadius: "100px",
+                  color: "black",
+                  width: 200,
+                  ml: 2,
 
-                "&:hover": {
-                  backgroundColor: "#2952A2", // Background color on hover
-                  cursor: "pointer",
-                  border: "none",
-                  color: "#ffffff",
-                },
-              }}
-            >
-              Contact Us
-            </Button>
+                  "&:hover": {
+                    backgroundColor: "#2952A2", // Background color on hover
+                    cursor: "pointer",
+                    border: "none",
+                    color: "#ffffff",
+                  },
+                }}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                Contact Us
+              </Button>
+            </a>
           </Stack>
         </Paper>
       </Box>
@@ -205,11 +219,18 @@ const Footer = () => {
           alignItems={"center"}
           justifyContent={"center"}
           alignContent={"center"}
+          sx={{
+            alignItems: { xs: "center", md: "flex-start" },
+            display: { xs: "flex", md: "block" },
+            flexDirection: "column",
+          }}
         >
           <Paper
             sx={{
               p: 3,
-              display: "inline-block",
+              alignItems: { xs: "center", md: "flex-start" },
+              display: { xs: "flex", md: "block" },
+              flexDirection: "column",
               borderRadius: "10px",
               background:
                 "linear-gradient(90deg, rgba(42, 83, 162, 0.4) 0%, rgba(79, 161, 202, 0.4) 17.19%, rgba(57, 155, 127, 0.4) 34.38%, rgba(34, 119, 39, 0.4) 51.04%, rgba(127, 196, 27, 0.4) 68.23%, rgba(254, 127, 6, 0.4) 83.85%, rgba(218, 2, 66, 0.4) 100%)",
@@ -223,13 +244,18 @@ const Footer = () => {
                 color: "#000000",
                 textAlign: "center",
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Empower Your Community, Elevate Your Experience
             </Typography>
             <Button
               variant="contained"
               component={Link}
-              to="/pricing"
+              to=""
+              onClick={() =>
+                window.open("https://admin.onecommunn.com/", "_blank")
+              }
               sx={{
                 fontFamily: "Montserrat",
                 textTransform: "capitalize",
@@ -244,13 +270,15 @@ const Footer = () => {
                   border: "none",
                 },
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Get started
             </Button>
             <Button
               variant="contained"
               component={Link}
-              to="/contacts"
+              to="/contact-us"
               sx={{
                 fontFamily: "Montserrat",
                 textTransform: "capitalize",
@@ -266,6 +294,8 @@ const Footer = () => {
                   border: "none",
                 },
               }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
             >
               Contact Us
             </Button>

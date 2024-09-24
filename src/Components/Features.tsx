@@ -64,7 +64,7 @@ const Features: React.FC<FeaturesProps> = ({
             sx={{
               fontFamily: "Montserrat",
               mt: 20,
-              fontSize: { xs: "30px", md: "36px" },
+              fontSize: { xs: "20px", md: "30px" },
               textAlign: { xs: "center", md: "center" },
             }}
             data-aos="fade-up"
@@ -78,7 +78,7 @@ const Features: React.FC<FeaturesProps> = ({
             fontWeight={700}
             sx={{
               fontFamily: "Montserrat",
-              fontSize: { xs: "30px", md: "36px" },
+              fontSize: { xs: "20px", md: "30px" },
               textAlign: { xs: "center", md: "center" },
             }}
             data-aos="fade-up"
@@ -96,9 +96,9 @@ const Features: React.FC<FeaturesProps> = ({
               borderRadius: "10px",
               textAlign: "center",
               p: { xs: 1.5, md: 2 },
-              mt: { xs: 10, md: 3 },
+              mt: { xs: 10, md: 5 },
               ml: { xs: 0, md: 0 },
-              display: { xs: "block", md: "none" },
+              display: { xs: "block", md: "block" },
               "&:hover": {
                 backgroundColor: "#50A1CA",
                 cursor: "pointer",
@@ -107,6 +107,9 @@ const Features: React.FC<FeaturesProps> = ({
             }}
             data-aos="fade-up"
             data-aos-duration="1000"
+            onClick={() =>
+              window.open("https://admin.onecommunn.com/", "_blank")
+            }
           >
             Get Started for free
           </Button>
@@ -233,7 +236,7 @@ const Features: React.FC<FeaturesProps> = ({
             alignContent: "center",
             justifyContent: "center",
             alignItems: "center",
-            height: { xs: "fit-content", md: "100vh" },
+            height: { xs: "fit-content", md: "85vh" },
           }}
         >
           <Stack>
@@ -293,8 +296,7 @@ const Features: React.FC<FeaturesProps> = ({
                       sx={{
                         fontFamily: "Montserrat",
                         color: "#1A2D4C",
-
-                        fontSize: { xs: "14px", md: "16px" },
+                        fontSize: { xs: "13px", md: "15px" },
                         lineHeight: "30px",
                       }}
                       data-aos="fade-up"
