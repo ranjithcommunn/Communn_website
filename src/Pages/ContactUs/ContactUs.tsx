@@ -50,7 +50,7 @@ const ContactUs = () => {
         autoHideDuration: 3000,
       });
       setTimeout(() => {
-        navigate("/home");
+        navigate("/thank-you");
       }, 3000);
     } catch (error) {
       enqueueSnackbar("Failed to send email.");

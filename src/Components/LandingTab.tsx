@@ -77,7 +77,7 @@ const LandingTab = (props: ITableContent) => {
         <Grid
           container
           spacing={2}
-          sx={{ display: { xs: "none", md: "flex" } }}
+          sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
         >
           <Grid item xs={12} md={7}>
             <TransitionGroup>
@@ -121,7 +121,7 @@ const LandingTab = (props: ITableContent) => {
                       color:
                         expanded === `panel${index}` ? "#2952A2" : "#2B2B2B",
                       fontFamily: "Montserrat",
-                      fontSize: { xs: "18px", md: "20px", fontWeight: "bold" },
+                      fontSize: { xs: "18px", md: "18px", fontWeight: "bold" },
                     }}
                   >
                     {content.label}
@@ -133,7 +133,7 @@ const LandingTab = (props: ITableContent) => {
                     sx={{
                       marginBottom: 2,
                       fontFamily: "Montserrat",
-                      fontSize: { xs: "18px", md: "15px", color: "#2B2B2B" },
+                      fontSize: { xs: "18px", md: "14px", color: "#2B2B2B" },
                     }}
                   >
                     {content.description}

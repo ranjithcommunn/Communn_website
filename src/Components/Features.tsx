@@ -117,7 +117,7 @@ const Features: React.FC<FeaturesProps> = ({
       </Box>
       <Card
         elevation={0}
-        sx={{ backgroundColor: "transparent", height: "fit-content", mt: -50 }}
+        sx={{ backgroundColor: "transparent", height: "fit-content", mt: -40 }}
       >
         <CardMedia
           component="img"

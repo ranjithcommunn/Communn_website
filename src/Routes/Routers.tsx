@@ -20,6 +20,8 @@ import { TermsAndCondition } from "../Pages/Help/TermsandConditions";
 import { RefundPolicy } from "../Pages/Help/RefundPolicy";
 import { Tution } from "../Pages/LandingPage/Tution";
 import { Gym } from "../Pages/LandingPage/Gym";
+import NotFound from "../Pages/404/404";
+import ThankYou from "../Pages/404/ThankYou";
 
 const Routers = () => {
   return (
@@ -47,7 +49,8 @@ const Routers = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-uses" element={<TermsAndCondition />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="*" element={<Home />} />
+          <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

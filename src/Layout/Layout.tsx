@@ -12,7 +12,7 @@ export const Layout = () => {
       <Box>
         <Outlet />
       </Box>
-      <Stack sx={{ px:{xs: 5, md:15},  py:{xs: 5, md:5}}}>
+      <Stack sx={{ px: { xs: 5, md: 15 }, py: { xs: 5, md: 5 } }}>
         <Faq />
       </Stack>
       <Footer />
