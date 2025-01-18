@@ -47,28 +47,30 @@ const pages: Page[] = [
     navigate: "/features1",
   },
   {
-    label: "I am",
-    value: "I am",
+    label: "Usecases",
+    value: "Usecases",
     dropdown: true,
     submenu: [
-      {
-        label: "An Entrepreneur",
-        value: "An Entrepreneur",
-        navigate: "/business",
-      },
-      { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
-      { label: "A Brand", value: "A Brand", navigate: "/brand" },
-      { label: "A Wellness", value: "A Wellness", navigate: "/wellness" },
-      { label: "A Teacher", value: "A Teacher", navigate: "/teacher" },
+      // {
+      //   label: "An Entrepreneur",
+      //   value: "An Entrepreneur",
+      //   navigate: "/business",
+      // },
+      // { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
+      // { label: "A Brand", value: "A Brand", navigate: "/brand" },
+      { label: "A Wellness", value: "A Wellness", navigate: "/gym" },
+      { label: "A Teacher", value: "A Teacher", navigate: "/tuition" },
+      { label: "A Yoga", value: "A Teacher", navigate: "/yoga" },
+      { label: "A Food Delivery", value: "A Teacher", navigate: "/food-delivery" },
     ],
     navigate: "",
   },
-  {
-    label: "Pricing",
-    value: "Pricing",
-    dropdown: false,
-    navigate: "/contact-us",
-  },
+  // {
+  //   label: "Pricing",
+  //   value: "Pricing",
+  //   dropdown: false,
+  //   navigate: "/contact-us",
+  // },
   {
     label: "About Us",
     value: "About Us",
@@ -86,7 +88,7 @@ const pages: Page[] = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredPage, setHoveredPage] = useState<string | null>(null);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Track anchor element for submenu
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -181,7 +183,7 @@ const Header = () => {
                 >
                   <NavLink
                     to={page.navigate}
-                    style={{ textDecoration: "none" }}
+                    style={{ textDecoration: "none", fontFamily: 'Montserrat' }}
                     onClick={() => window.scrollTo(0, 0)} // Scroll to top
                   >
                     <Button
@@ -229,6 +231,7 @@ const Header = () => {
                         "& .MuiPaper-root": {
                           borderRadius: "20px",
                           padding: "10px",
+                          fontFamily: "Montserrat"
                         },
                       }}
                     >
@@ -237,7 +240,7 @@ const Header = () => {
                           to={submenuItem.navigate}
                           style={{ textDecoration: "none" }}
                           key={submenuItem.value}
-                          onClick={() => window.scrollTo(0, 0)} // Ensure submenu scrolls to top
+                          onClick={() => window.scrollTo(0, 0)}
                         >
                           <MenuItem
                             sx={{

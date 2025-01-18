@@ -22,6 +22,7 @@ import { Tution } from "../Pages/LandingPage/Tution";
 import { Gym } from "../Pages/LandingPage/Gym";
 import NotFound from "../Pages/404/404";
 import ThankYou from "../Pages/404/ThankYou";
+import { Food } from "../Pages/LandingPage/Food";
 
 const Routers = () => {
   return (
@@ -33,7 +34,8 @@ const Routers = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/yoga" element={<Yoga />} />
-          <Route path="/tution" element={<Tution />} />
+          <Route path="/tuition" element={<Tution />} />
+          <Route path="/food-delivery" element={<Food />} />
           <Route path="/gym" element={<Gym />} />
           <Route path="/business" element={<Business />} />
           <Route path="/home-maker" element={<HomeMaker />} />

@@ -1,8 +1,6 @@
-import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import background from "../../Assets/Images/background.png";
-import background1 from "../../Assets/Images/Home/bg1.webp";
 import { useTypewriter } from "react-simple-typewriter";
-import { Helmet } from "react-helmet";
 
 const HomeBanner = () => {
   const [text] = useTypewriter({
@@ -118,18 +116,30 @@ const HomeBanner = () => {
                           component={"img"}
                           src={require("../../Assets/Images/Home/Playstore.png")}
                           alt=""
-                          sx={{ width: "100%" }}
+                          sx={{ width: "93%" }}
                         />
                       </Box>
-
                       <Box
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                        component={"img"}
-                        src={require("../../Assets/Images/Home/Appstore.png")}
-                        alt=""
-                        sx={{ width: "35%", pl: 2 }}
-                      />
+                        component={"a"}
+                        href="https://apps.apple.com/us/app/onecommunn/id6499468652"
+                        sx={{
+                          width: "35%",
+                          pr: 2,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+
+                        <Box
+                          data-aos="fade-up"
+                          data-aos-duration="1000"
+                          component={"img"}
+                          src={require("../../Assets/Images/Home/Appstore.png")}
+                          alt=""
+                          sx={{ width: "120%", pl: 2 }}
+                        />
+
+                      </Box>
                     </Stack>
                   </Stack>
                 </Grid>

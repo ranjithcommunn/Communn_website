@@ -1,9 +1,9 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import NotFount from "../../Assets/Images/404.webp";
-import { useNavigate } from "react-router-dom";
+
 
 const NotFound = () => {
-  const naviagte = useNavigate();
+
   return (
     <>
       <Stack sx={{ display: "flex", alignItems: "center" }}>

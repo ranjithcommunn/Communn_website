@@ -66,7 +66,7 @@ const business = [
 const pageTitle = "HOME MAKER";
 const pageSubTilte = "Empowering Home Makers for a Fresh Start with Onecommunn";
 const pageDescription =
-  "Welcome to Communn, where communities flourish, connections thrive, and change becomes possible. We are More than a platform; a community revolution uniting strength and genuine connections.";
+  "Welcome to Onecommunn, where communities flourish, connections thrive, and change becomes possible. We are More than a platform; a community revolution uniting strength and genuine connections.";
 const meetName = "Aisha";
 const meetDescription =
   ", a dedicated homemaker who has always put her family's needs before her own aspirations. However, with the advent of Onecommunn, her life takes an unexpected turn towards personal growth and financial independence.";

@@ -68,7 +68,7 @@ export const PrivacyPolicy = () => {
             you understand your privacy rights and choices. If you do not agree
             with our policies and practices, please do not use our Services. If
             you still have any questions or concerns, please contact us at
-            info@onecommunn.com.
+            info@communn.io.
           </Typography>
           <br></br>
           <Typography
@@ -688,7 +688,7 @@ export const PrivacyPolicy = () => {
             been collected, we will deactivate the account and take reasonable
             measures to promptly delete such data from our records. If you
             become aware of any data we may have collected from children under
-            age 18, please contact us at info@onecommunn.com.
+            age 18, please contact us at info@communn.io.
           </Typography>
           <br></br>
 
@@ -753,7 +753,7 @@ export const PrivacyPolicy = () => {
           <br></br>
           <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
             If you have questions or comments about your privacy rights, you may
-            email us at info@onecommunn.com.
+            email us at info@communn.io.
           </Typography>
           <br></br>
           <Typography
@@ -814,7 +814,7 @@ export const PrivacyPolicy = () => {
           <br></br>
           <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
             If you have questions or comments about this notice, you may email
-            us at info@onecommunn.com or contact us by post at:
+            us at info@communn.io or contact us by post at:
           </Typography>
           <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
             Digitrii Solutions Private Limited <br></br>

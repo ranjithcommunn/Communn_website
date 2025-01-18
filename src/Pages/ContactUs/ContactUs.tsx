@@ -2,9 +2,9 @@ import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import background from "../../Assets/Images/background.png";
 import { Field, Title } from "./Contact.styles";
 import { ChangeEvent, useState } from "react";
-import emailjs from "emailjs-com";
 import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface IFormData {
   fullName: string;
@@ -32,33 +32,63 @@ const ContactUs = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+
+
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await emailjs.send(
-        "service_lq5df2h",
-        "template_g35kxjh",
+
+    const apiUrl = "https://api.kylas.io/v1/leads/";
+    const headers = {
+      "Content-Type": "application/json",
+      "api-key": "5cbd8053-0d0a-4f9e-a5f3-29e9fe222ba8:16740",
+    };
+
+    const payload = {
+      firstName: formData.fullName.split(" ")[0] || "",
+      phoneNumbers: [
         {
-          ...formData,
+          type: "MOBILE",
+          code: "IN",
+          value: formData.phoneNumber,
+          dialCode: "+91",
+          primary: true,
         },
-        "KcCSNBDRR_fStNgee"
-      );
+      ],
+      emails: [
+        {
+          type: "OFFICE",
+          value: formData.email,
+          primary: true,
+        },
+      ],
+      cfFormMessage: formData?.comments
+    };
+
+
+    try {
+
+      const response = await axios.post(apiUrl, payload, { headers });
       setFormData({ fullName: "", email: "", phoneNumber: "", comments: "" });
-      enqueueSnackbar("Email sent successfully!", {
+      enqueueSnackbar("Lead submitted successfully!", {
         variant: "success",
         autoHideDuration: 3000,
       });
       setTimeout(() => {
         navigate("/thank-you");
-      }, 3000);
+      }, 1000);
+      return response
     } catch (error) {
-      enqueueSnackbar("Failed to send email.");
-      console.error("Email sending error:", error);
+      enqueueSnackbar("Failed to submit lead.");
     } finally {
       setLoading(false);
     }
   };
+
+
+
+
 
   return (
     <>
@@ -132,7 +162,7 @@ const ContactUs = () => {
                       EMAIL
                     </Typography>
                     <a
-                      href="mailto:info@onecommunn.com"
+                      href="mailto:info@communn.io"
                       target="_blank"
                       style={{ textDecoration: "none" }}
                     >
@@ -146,7 +176,7 @@ const ContactUs = () => {
                           fontSize: { xs: "13px", md: "16px" },
                         }}
                       >
-                        info@onecommunn.com
+                        info@communn.io
                       </Typography>
                     </a>
 
@@ -203,101 +233,103 @@ const ContactUs = () => {
                     ml: { xs: 5, md: 0 },
                   }}
                 >
-                  <Stack component="form" onSubmit={sendEmail}>
-                    <Typography
-                      sx={{
-                        color: "#2952A2",
-                        fontFamily: "Montserrat",
-                        fontSize: { xs: "25px", md: "33px" },
-                        fontWeight: "bold",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                      }}
-                    >
-                      get in touch
-                    </Typography>
-                    <Typography sx={Title}>Name</Typography>
-                    <TextField
-                      name="fullName"
-                      type="text"
-                      label="Name"
-                      variant="outlined"
-                      sx={Field}
-                      onChange={handleChange}
-                      value={formData.fullName}
-                      InputLabelProps={{
-                        sx: {
+                  <div id="kl__form-container">
+                    <Stack component="form" onSubmit={sendEmail}>
+                      <Typography
+                        sx={{
+                          color: "#2952A2",
                           fontFamily: "Montserrat",
-                          fontSize: { xs: "13px", md: "18px" },
-                        },
-                      }}
-                    />
+                          fontSize: { xs: "25px", md: "33px" },
+                          fontWeight: "bold",
+                          textTransform: "capitalize",
+                          textAlign: "center",
+                        }}
+                      >
+                        get in touch
+                      </Typography>
+                      <Typography sx={Title}>Name</Typography>
+                      <TextField
+                        name="fullName"
+                        type="text"
+                        label="Name"
+                        variant="outlined"
+                        sx={Field}
+                        onChange={handleChange}
+                        value={formData.fullName}
+                        InputLabelProps={{
+                          sx: {
+                            fontFamily: "Montserrat",
+                            fontSize: { xs: "13px", md: "18px" },
+                          },
+                        }}
+                      />
 
-                    <Typography sx={Title}>Email</Typography>
-                    <TextField
-                      name="email"
-                      type="email"
-                      label="Email"
-                      variant="outlined"
-                      sx={Field}
-                      onChange={handleChange}
-                      value={formData.email}
-                      InputLabelProps={{
-                        sx: {
-                          fontFamily: "Montserrat",
-                          fontSize: { xs: "13px", md: "18px" },
-                        },
-                      }}
-                    />
+                      <Typography sx={Title}>Email</Typography>
+                      <TextField
+                        name="email"
+                        type="email"
+                        label="Email"
+                        variant="outlined"
+                        sx={Field}
+                        onChange={handleChange}
+                        value={formData.email}
+                        InputLabelProps={{
+                          sx: {
+                            fontFamily: "Montserrat",
+                            fontSize: { xs: "13px", md: "18px" },
+                          },
+                        }}
+                      />
 
-                    <Typography sx={Title}>Mobile Number</Typography>
-                    <TextField
-                      name="phoneNumber"
-                      type="tel"
-                      label="Mobile Number"
-                      variant="outlined"
-                      sx={Field}
-                      onChange={handleChange}
-                      value={formData.phoneNumber}
-                      InputLabelProps={{
-                        sx: {
+                      <Typography sx={Title}>Mobile Number</Typography>
+                      <TextField
+                        name="phoneNumber"
+                        type="tel"
+                        label="Mobile Number"
+                        variant="outlined"
+                        sx={Field}
+                        onChange={handleChange}
+                        value={formData.phoneNumber}
+                        InputLabelProps={{
+                          sx: {
+                            fontFamily: "Montserrat",
+                            fontSize: { xs: "13px", md: "18px" },
+                          },
+                        }}
+                      />
+                      <Typography sx={Title}>Message</Typography>
+                      <TextField
+                        name="comments"
+                        type="text"
+                        label="Message"
+                        multiline
+                        rows={3}
+                        variant="outlined"
+                        onChange={handleChange}
+                        value={formData.comments}
+                        InputLabelProps={{
+                          sx: {
+                            fontFamily: "Montserrat",
+                            fontSize: { xs: "13px", md: "18px" },
+                          },
+                        }}
+                      />
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
                           fontFamily: "Montserrat",
-                          fontSize: { xs: "13px", md: "18px" },
-                        },
-                      }}
-                    />
-                    <Typography sx={Title}>Message</Typography>
-                    <TextField
-                      name="comments"
-                      type="text"
-                      label="Message"
-                      multiline
-                      rows={3}
-                      variant="outlined"
-                      onChange={handleChange}
-                      value={formData.comments}
-                      InputLabelProps={{
-                        sx: {
-                          fontFamily: "Montserrat",
-                          fontSize: { xs: "13px", md: "18px" },
-                        },
-                      }}
-                    />
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      sx={{
-                        fontFamily: "Montserrat",
-                        textTransform: "capitalize",
-                        backgroundColor: "#000000",
-                        borderRadius: "10px",
-                        p: 2,
-                        mt: 5,
-                      }}
-                    >
-                      Submit
-                    </Button>
-                  </Stack>
+                          textTransform: "capitalize",
+                          backgroundColor: "#000000",
+                          borderRadius: "10px",
+                          p: 2,
+                          mt: 5,
+                        }}
+                      >
+                        Submit
+                      </Button>
+                    </Stack>
+                  </div>
                 </Grid>
               </Grid>
             </Stack>

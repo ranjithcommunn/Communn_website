@@ -1,8 +1,5 @@
 import {
   Button,
-  Checkbox,
-  FormControlLabel,
-  FormGroup,
   Grid,
   Stack,
   TextField,
@@ -12,14 +9,15 @@ import { Field } from "../Pages/ContactUs/Contact.styles";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { useSnackbar } from "notistack";
-import FormLabel from "@mui/material/FormLabel";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 interface IFormData {
   fullName: string;
   phoneNumber: string;
   emailId: string;
-  respondByEmail: boolean;
-  respondByPhone: boolean;
+
 }
 
 const LandingForm = () => {
@@ -27,13 +25,13 @@ const LandingForm = () => {
     fullName: "",
     phoneNumber: "",
     emailId: "",
-    respondByEmail: false,
-    respondByPhone: false,
   });
 
   const [, setLoading] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar();
+
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = event.target;
@@ -42,35 +40,52 @@ const LandingForm = () => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
+
+
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await emailjs.send(
-        "service_0qwo508",
-        "template_pol81gn",
+    const apiUrl = "https://api.kylas.io/v1/leads/";
+    const headers = {
+      "Content-Type": "application/json",
+      "api-key": "5cbd8053-0d0a-4f9e-a5f3-29e9fe222ba8:16740",
+    };
+
+    const payload = {
+      firstName: formData.fullName.split(" ")[0] || "",
+      phoneNumbers: [
         {
-          ...formData,
+          type: "MOBILE",
+          code: "IN",
+          value: formData.phoneNumber,
+          dialCode: "+91",
+          primary: true,
         },
-        "KcCSNBDRR_fStNgee"
-      );
-      setFormData({
-        fullName: "",
-        phoneNumber: "",
-        emailId: "",
-        respondByEmail: false,
-        respondByPhone: false,
-      });
-      enqueueSnackbar("Email sent successfully!", {
+      ],
+      emails: [
+        {
+          type: "OFFICE",
+          value: formData.emailId,
+          primary: true,
+        },
+      ],
+
+    };
+
+    try {
+
+      const response = await axios.post(apiUrl, payload, { headers });
+      setFormData({ fullName: "", emailId: "", phoneNumber: "", });
+      enqueueSnackbar("Lead submitted successfully!", {
         variant: "success",
         autoHideDuration: 3000,
       });
       setTimeout(() => {
-        window.open("/thank-you", "_self");
-      }, 3000);
+        navigate("/thank-you");
+      }, 1000);
+      return response
     } catch (error) {
-      enqueueSnackbar("Failed to send email.");
-      console.error("Email sending error:", error);
+      enqueueSnackbar("Failed to submit lead.");
     } finally {
       setLoading(false);
     }
@@ -78,6 +93,7 @@ const LandingForm = () => {
 
   return (
     <>
+
       <Stack>
         <Grid
           container
@@ -96,6 +112,7 @@ const LandingForm = () => {
               borderRadius: "10px",
             }}
           >
+
             <Typography
               sx={{
                 color: "#2952A2",
@@ -109,77 +126,79 @@ const LandingForm = () => {
             >
               Book a demo
             </Typography>
-            <Stack component="form" onSubmit={sendEmail}>
-              <Stack
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                }}
-                gap={{ xs: 2, md: 5 }}
-              >
-                <TextField
-                  size="small"
-                  name="fullName"
-                  type="text"
-                  label="Name"
-                  variant="outlined"
-                  sx={Field}
-                  required
-                  onChange={handleChange}
-                  value={formData.fullName}
-                  InputLabelProps={{
-                    sx: {
-                      fontFamily: "Montserrat",
-                      fontSize: { xs: "13px", md: "15px" },
-                    },
+            <div id="kl__form-container" style={{ minHeight: '0px !important', backgroundColor: 'transparent !important' }}>
+              <Stack component="form" onSubmit={sendEmail}>
+                <Stack
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
                   }}
-                />
-                <TextField
-                  size="small"
-                  name="phoneNumber"
-                  type="tel"
-                  label="Mobile"
-                  variant="outlined"
-                  sx={Field}
-                  required
-                  onChange={handleChange}
-                  value={formData.phoneNumber}
-                  error={
-                    !/^\d{10}$/.test(formData.phoneNumber) &&
-                    formData.phoneNumber !== ""
-                  }
-                  helperText={
-                    !/^\d{10}$/.test(formData.phoneNumber) &&
-                    formData.phoneNumber !== ""
-                      ? "Enter a valid number"
-                      : ""
-                  }
-                  InputLabelProps={{
-                    sx: {
-                      fontFamily: "Montserrat",
-                      fontSize: { xs: "13px", md: "15px" },
-                    },
-                  }}
-                />
-                <TextField
-                  size="small"
-                  name="emailId"
-                  type="email"
-                  label="Email ID"
-                  required
-                  variant="outlined"
-                  sx={Field}
-                  onChange={handleChange}
-                  value={formData.emailId}
-                  InputLabelProps={{
-                    sx: {
-                      fontFamily: "Montserrat",
-                      fontSize: { xs: "13px", md: "15px" },
-                    },
-                  }}
-                />
-              </Stack>
-              <Stack sx={{ mt: 3 }}>
+                  gap={{ xs: 2, md: 5 }}
+                >
+
+                  <TextField
+                    size="small"
+                    name="fullName"
+                    type="text"
+                    label="Name"
+                    variant="outlined"
+                    sx={Field}
+                    required
+                    onChange={handleChange}
+                    value={formData.fullName}
+                    InputLabelProps={{
+                      sx: {
+                        fontFamily: "Montserrat",
+                        fontSize: { xs: "13px", md: "15px" },
+                      },
+                    }}
+                  />
+                  <TextField
+                    size="small"
+                    name="phoneNumber"
+                    type="tel"
+                    label="Mobile"
+                    variant="outlined"
+                    sx={Field}
+                    required
+                    onChange={handleChange}
+                    value={formData.phoneNumber}
+                    error={
+                      !/^\d{10}$/.test(formData.phoneNumber) &&
+                      formData.phoneNumber !== ""
+                    }
+                    helperText={
+                      !/^\d{10}$/.test(formData.phoneNumber) &&
+                        formData.phoneNumber !== ""
+                        ? "Enter a valid number"
+                        : ""
+                    }
+                    InputLabelProps={{
+                      sx: {
+                        fontFamily: "Montserrat",
+                        fontSize: { xs: "13px", md: "15px" },
+                      },
+                    }}
+                  />
+                  <TextField
+                    size="small"
+                    name="emailId"
+                    type="email"
+                    label="Email ID"
+                    required
+                    variant="outlined"
+                    sx={Field}
+                    onChange={handleChange}
+                    value={formData.emailId}
+                    InputLabelProps={{
+                      sx: {
+                        fontFamily: "Montserrat",
+                        fontSize: { xs: "13px", md: "15px" },
+                      },
+                    }}
+                  />
+                </Stack>
+                {/* <Stack sx={{ mt: 3 }}>
                 <FormLabel
                   sx={{
                     fontFamily: "Montserrat",
@@ -190,7 +209,10 @@ const LandingForm = () => {
                 </FormLabel>
 
                 <FormGroup>
-                  <Stack display={"flex"} flexDirection={"row"}>
+                  <Stack
+                    display={"flex"}
+                    sx={{ flexDirection: { xs: "column", md: "row" } }}
+                  >
                     <FormControlLabel
                       control={
                         <Checkbox
@@ -229,29 +251,31 @@ const LandingForm = () => {
                     />
                   </Stack>
                 </FormGroup>
-              </Stack>
+              </Stack> */}
 
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{
-                  mt: 3,
-                  fontFamily: "Montserrat",
-                  textTransform: "capitalize",
-                  backgroundColor: "#000000",
-                  borderRadius: "8px",
-                  "& :hover": {
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    mt: 3,
+                    fontFamily: "Montserrat",
+                    textTransform: "capitalize",
                     backgroundColor: "#000000",
-                    color: "white",
-                  },
-                }}
-              >
-                Submit
-              </Button>
-            </Stack>
+                    borderRadius: "8px",
+                    "& :hover": {
+                      backgroundColor: "#000000",
+                      color: "white",
+                    },
+                  }}
+                >
+                  Submit
+                </Button>
+              </Stack>
+            </div>
           </Grid>
         </Grid>
       </Stack>
+
     </>
   );
 };

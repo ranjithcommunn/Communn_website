@@ -69,6 +69,57 @@
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16717377452"
+    ></script>
+    <script
+      src="https://assets.kylas.io/lead-capture-forms/lcf.min.js"
+      form-id="df3cb930-e7c0-4f12-89b5-c63267aacc84"
+    ></script>
+    <script
+      src="https://assets.kylas.io/lead-capture-forms/lcf.min.js"
+      form-id="6bbdc8fd-6ee4-4cc6-ab53-00f03ea58d8d"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16717377452");
+    </script>
+    <!-- Event snippet for Book appointment conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          send_to: "AW-16717377452/D2aOCN__jdcZEKzfu6M-",
+          event_callback: callback,
+        });
+        return false;
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16717377452"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16717377452");
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

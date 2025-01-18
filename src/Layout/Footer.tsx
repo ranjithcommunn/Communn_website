@@ -15,10 +15,13 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 
 const Footer = () => {
-  const navigate = useNavigate();
+
+  const currentDate = new Date()
+
+
 
   const features = [
     { label: "Member Management", path: "/members" },
@@ -29,10 +32,14 @@ const Footer = () => {
   ];
 
   const useCases = [
-    { label: "Content Creator", path: "/brand" },
-    { label: "Entrepreneur", path: "/home-maker" },
-    { label: "Business Owner", path: "/business" },
-    { label: "Fitness & Wellness ", path: "/wellness" },
+    // { label: "Content Creator", path: "/brand" },
+    // { label: "Entrepreneur", path: "/home-maker" },
+    // { label: "Business Owner", path: "/business" },
+    // { label: "Fitness & Wellness ", path: "/wellness" },
+    { label: "Fitness ", path: "/gym" },
+    { label: "Tuition ", path: "/tuition" },
+    { label: "Wellness", path: "/yoga" },
+    { label: "Food Delivery", path: "/food-delivery" }
   ];
 
   const company = [
@@ -43,9 +50,7 @@ const Footer = () => {
     { label: "Contact Us", link: "/contact-us" },
   ];
 
-  const handleButtonClick = () => {
-    navigate("/contacts");
-  };
+
 
   return (
     <>
@@ -369,12 +374,18 @@ const Footer = () => {
                 sx={{ width: "80%", pb: 2 }}
               />
             </a>
-            <Box
-              component={"img"}
-              src={require("../Assets/Images/app-store-download-button.png")}
-              alt=""
-              sx={{ width: "60%", pb: 2, ml: 2 }}
-            />
+            <Link
+              to="https://apps.apple.com/us/app/onecommunn/id6499468652"
+              target="_blank"
+            >
+              <Box
+                component={"img"}
+                src={require("../Assets/Images/app-store-download-button.png")}
+                alt=""
+                sx={{ width: "60%", pb: 2, ml: 2 }}
+              />
+            </Link>
+
             <Link
               to="https://play.google.com/store/apps/details?id=com.communn_mobile_app"
               target="_blank"
@@ -647,7 +658,7 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            © 2024 Onecommunn. All Rights Reserved.
+            © {currentDate?.getFullYear()} Onecommunn. All Rights Reserved.
           </Typography>
         </Stack>
       </Box>

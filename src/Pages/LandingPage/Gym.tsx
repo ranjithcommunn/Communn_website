@@ -120,9 +120,9 @@ export const Gym = () => {
         onClick={handClickButton}
         bonus="Bonus!"
         bonusSubheading="Get a Free Website for Your Gym — A Gift from Us!"
-        bonusHeading1="Showcase Your Centre"
-        bonusHeading2="Attract New Customers"
-        bonusHeading3="Market Your Gym"
+        bonusHeading1="1. Showcase Your Centre : "
+        bonusHeading2="2. Attract New Customers : "
+        bonusHeading3="3. Market Your Gym : "
         bonusDescription1="Highlight your trainers, equipment, and facilities"
         bonusDescription2=" Expand your reach and bring more members to your gym."
         bonusDescription3="Easily market your gym and fitness classes."

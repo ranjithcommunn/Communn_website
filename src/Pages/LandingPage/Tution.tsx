@@ -121,9 +121,9 @@ export const Tution = () => {
         onClick={handClickButton}
         bonus="Bonus!"
         bonusSubheading="Get a Free Website for Your Tuition Center—A Gift from Us!"
-        bonusHeading1="Showcase Your Centre"
-        bonusHeading2="Attract New Customers"
-        bonusHeading3="Market Your Tuition Centre"
+        bonusHeading1="1. Showcase Your Centre : "
+        bonusHeading2="2. Attract New Customers : "
+        bonusHeading3="3. Market Your Tuition Centre : "
         bonusDescription1="Display your classes, instructors, and achievements with a professional online presence."
         bonusDescription2="Expand your reach and bring more students to your center."
         bonusDescription3="Easily promote your offerings to a broader audience with just a few clicks."

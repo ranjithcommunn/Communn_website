@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import { ButtonStyle } from "./UsesCases.styles";
-import LandingForm from "./LandingForm";
+
 
 interface UseCasesProps {
   pageSubTitle?: string;
@@ -13,12 +13,17 @@ interface UseCasesProps {
     title: string;
     description: string;
     image: string;
+    list1?: string;
+    list2?: string;
+    list3?: string;
   }[];
   bonus?: string;
+  bonusFirstHeading?: string;
   bonusSubheading?: string;
   bonusHeading1?: string;
   bonusHeading2?: string;
   bonusHeading3?: string;
+  bonusDescription?: string;
   bonusDescription1?: string;
   bonusDescription2?: string;
   bonusDescription3?: string;
@@ -35,10 +40,12 @@ const LandingPage: React.FC<UseCasesProps> = ({
   pageDescription,
   pageSubTitle,
   bonus,
+  bonusFirstHeading,
   bonusSubheading,
   bonusHeading1,
   bonusHeading2,
   bonusHeading3,
+  bonusDescription,
   bonusDescription1,
   bonusDescription2,
   bonusDescription3,
@@ -258,6 +265,46 @@ const LandingPage: React.FC<UseCasesProps> = ({
                     >
                       {feature.description}
                     </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "Montserrat",
+                        color: "#1A2D4C",
+                        fontSize: { xs: "13px", md: "15px" },
+                        lineHeight: "30px",
+                        ml: 2
+                      }}
+                      data-aos="fade-up"
+                      data-aos-duration="900"
+                    >
+                      - {feature.list1}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: "Montserrat",
+                        color: "#1A2D4C",
+                        fontSize: { xs: "13px", md: "15px" },
+                        lineHeight: "30px",
+                        ml: 2
+                      }}
+                      data-aos="fade-up"
+                      data-aos-duration="900"
+                    >
+                      - {feature.list2}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: "Montserrat",
+                        color: "#1A2D4C",
+                        fontSize: { xs: "13px", md: "15px" },
+                        lineHeight: "30px",
+                        ml: 2
+                      }}
+                      data-aos="fade-up"
+                      data-aos-duration="900"
+                    >
+                      - {feature.list3}
+                    </Typography>
                   </Paper>
                 </Stack>
               </Grid>
@@ -310,6 +357,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                   >
                     {bonus}
                   </Typography>
+
                   <Typography
                     sx={{
                       fontFamily: "Montserrat",
@@ -323,6 +371,34 @@ const LandingPage: React.FC<UseCasesProps> = ({
                     data-aos-duration="900"
                   >
                     {bonusSubheading}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#2A53A2",
+                      fontSize: { xs: "18px", md: "18px" },
+                      fontFamily: "Montserrat",
+                      fontWeight: "bold",
+                      pb: 2,
+                    }}
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                  >
+                    {bonusFirstHeading}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Montserrat",
+                      color: "#1A2D4C",
+                      fontSize: { xs: "13px", md: "15px" },
+                      lineHeight: "30px",
+
+                      pb: 2,
+                    }}
+                    data-aos="fade-up"
+                    data-aos-duration="900"
+                  >
+
+                    {bonusDescription}
                   </Typography>
                   <Typography
                     sx={{
@@ -345,7 +421,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                         fontWeight: "500",
                       }}
                     >
-                      1. {bonusHeading1}:
+                      {bonusHeading1}
                     </Typography>{" "}
                     {bonusDescription1}
                   </Typography>
@@ -370,7 +446,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                         fontWeight: "500",
                       }}
                     >
-                      2.{bonusHeading2}:
+                      {bonusHeading2}
                     </Typography>{" "}
                     {bonusDescription2}
                   </Typography>
@@ -395,7 +471,7 @@ const LandingPage: React.FC<UseCasesProps> = ({
                         fontWeight: "500",
                       }}
                     >
-                      3.{bonusHeading3}:
+                      {bonusHeading3}
                     </Typography>{" "}
                     {bonusDescription3}
                   </Typography>

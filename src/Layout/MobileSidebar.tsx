@@ -64,18 +64,22 @@ const menuItems: menuItems[] = [
     value: "I am",
     dropdown: true,
     submenu: [
-      {
-        label: "An Entrepreneur",
-        value: "An Entrepreneur",
-        navigate: "/business",
-      },
-      { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
-      { label: "A Teacher", value: "A Teacher", navigate: "/brand" },
-      {
-        label: "A Wellness",
-        value: "A Wellness",
-        navigate: "/wellness",
-      },
+      // {
+      //   label: "An Entrepreneur",
+      //   value: "An Entrepreneur",
+      //   navigate: "/business",
+      // },
+      // { label: "A Homemaker", value: "A Homemaker", navigate: "/home-maker" },
+      // { label: "A Teacher", value: "A Teacher", navigate: "/brand" },
+      // {
+      //   label: "A Wellness",
+      //   value: "A Wellness",
+      //   navigate: "/wellness",
+      // },
+      { label: "A Wellness", value: "A Wellness", navigate: "/gym" },
+      { label: "A Teacher", value: "A Teacher", navigate: "/tuition" },
+      { label: "A Yoga", value: "A Teacher", navigate: "/yoga" },
+      { label: "A Food Delivery", value: "A Teacher", navigate: "/food-delivery" },
     ],
     navigate: "",
   },
@@ -130,17 +134,17 @@ export default function MobileSideBar() {
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
+      (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+          event.type === "keydown" &&
+          ((event as React.KeyboardEvent).key === "Tab" ||
+            (event as React.KeyboardEvent).key === "Shift")
+        ) {
+          return;
+        }
 
-      setState({ ...state, [anchor]: open });
-    };
+        setState({ ...state, [anchor]: open });
+      };
 
   const list = (anchor: Anchor) => (
     <Box
@@ -156,7 +160,7 @@ export default function MobileSideBar() {
         justifyContent={"space-between"}
         sx={{ alignItems: "center" }}
       >
-        <Link to="/home  " style={{ textDecoration: "none" }}>
+        <Link to="/home  " style={{ textDecoration: "none", fontFamily: 'Montserrat' }}>
           <Box
             component={"img"}
             src={require("../Assets/Images/Logo.png")}

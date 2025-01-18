@@ -121,9 +121,9 @@ export const Yoga = () => {
         onClick={handClickButton}
         bonus="Bonus!"
         bonusSubheading="Get a Free Website for Your Yoga Center—A Gift from Us!"
-        bonusHeading1="Showcase Your Centre"
-        bonusHeading2="Attract New Customers"
-        bonusHeading3="Market Your Yoga Centre"
+        bonusHeading1="1. Showcase Your Centre :   "
+        bonusHeading2="2. Attract New Customers : "
+        bonusHeading3="3. Market Your Yoga Centre : "
         bonusDescription1="Display your classes, instructors, and facilities in style."
         bonusDescription2="Expand your reach and bring more clients to your center."
         bonusDescription3="Easily promote your offerings to a broader audience with just a few clicks."
