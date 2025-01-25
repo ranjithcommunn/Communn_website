@@ -27,7 +27,7 @@
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
     "react-multi-carousel": "^2.8.5",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.28.1",
     "react-scripts": "5.0.1",
     "react-simple-typewriter": "^5.0.1",
     "react-transition-group": "^4.4.5",
