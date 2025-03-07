@@ -208,7 +208,7 @@ const ContactUs = () => {
                           fontSize: { xs: "13px", md: "16px" },
                         }}
                       >
-                        +91 99457 53240
+                        +91 79752 07595
                       </Typography>
                     </a>
 

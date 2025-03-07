@@ -168,8 +168,8 @@ const Footer = () => {
             <Button
               variant="contained"
               component={Link}
-              to="https://admin.onecommunn.com"
-              target="_blank"
+              to="/contact-us"
+              // target="_blank"
               sx={{
                 fontFamily: "Montserrat",
                 textTransform: "capitalize",
@@ -189,31 +189,33 @@ const Footer = () => {
             >
               Get started
             </Button>
-            <a href="/contact-us" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                sx={{
-                  fontFamily: "Montserrat",
-                  textTransform: "capitalize",
-                  backgroundColor: "White",
-                  borderRadius: "100px",
-                  color: "black",
-                  width: 200,
-                  ml: 2,
 
-                  "&:hover": {
-                    backgroundColor: "#2952A2", // Background color on hover
-                    cursor: "pointer",
-                    border: "none",
-                    color: "#ffffff",
-                  },
-                }}
-                data-aos="fade-up"
-                data-aos-duration="1000"
-              >
-                Contact Us
-              </Button>
-            </a>
+            <Button
+              component={Link}
+              to="/contact-us"
+              variant="contained"
+              sx={{
+                fontFamily: "Montserrat",
+                textTransform: "capitalize",
+                backgroundColor: "White",
+                borderRadius: "100px",
+                color: "black",
+                width: 200,
+                ml: 2,
+
+                "&:hover": {
+                  backgroundColor: "#2952A2", // Background color on hover
+                  cursor: "pointer",
+                  border: "none",
+                  color: "#ffffff",
+                },
+              }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Contact Us
+            </Button>
+
           </Stack>
         </Paper>
       </Box>

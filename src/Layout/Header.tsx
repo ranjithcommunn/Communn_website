@@ -8,7 +8,7 @@ import { MenuItem, Menu } from "@mui/material";
 import { useState, useEffect } from "react";
 import MobileSideBar from "./MobileSidebar";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 interface Page {
   label: string;
@@ -23,7 +23,7 @@ interface Page {
 }
 
 const pages: Page[] = [
-  { label: "Home", value: "Home", dropdown: false, navigate: "/home" },
+  { label: "Home", value: "Home", dropdown: false, navigate: "/" },
   {
     label: "I Can",
     value: "I Can",
@@ -119,6 +119,9 @@ const Header = () => {
     setHoveredPage(null);
     setAnchorEl(null);
   };
+
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -264,8 +267,10 @@ const Header = () => {
 
             <Box sx={{ flexGrow: 0 }}>
               <Button
-                onClick={() =>
-                  window.open("https://admin.onecommunn.com/", "_blank")
+                onClick={() => (
+                  navigate('/contact-us')
+                )
+
                 }
                 variant="contained"
                 sx={{
@@ -274,10 +279,12 @@ const Header = () => {
                   backgroundColor: "#2952A2",
                   borderRadius: "30px",
                   display: { xs: "none", sm: "none", md: "block" },
+                  boxShadow: 'none',
                   "&:hover": {
                     backgroundColor: "#50A1CA",
                     cursor: "pointer",
                     border: "none",
+                    boxShadow: 'none',
                   },
                 }}
               >

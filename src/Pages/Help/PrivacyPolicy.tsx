@@ -840,6 +840,25 @@ export const PrivacyPolicy = () => {
             collect from you, change that information, or delete it.
           </Typography>
           <br></br>
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "25PX",
+              fontWeight: "bold",
+            }}
+          >
+            Use of Google Workspace APIs
+          </Typography>
+          <br></br>
+          <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
+            One Communn integrates with Google Workspace APIs (such as Google Drive and Google Calendar) to enhance user experience and provide core functionalities like meeting recordings and event scheduling.
+          </Typography>
+          <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
+            We explicitly affirm that One Communn does not use any data obtained through Google Workspace APIs to develop, improve, or train generalized artificial intelligence (AI) or machine learning (ML) models.
+          </Typography>
+          <Typography sx={{ fontFamily: "Montserrat", fontSize: "15PX" }}>
+            All accessed data is solely used for the intended functionality of the application and is not shared with third parties for AI/ML purposes.</Typography>
+          <br></br>
           <br></br>
           <br></br>
           <br></br>

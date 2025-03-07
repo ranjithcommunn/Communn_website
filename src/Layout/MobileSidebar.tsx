@@ -32,7 +32,7 @@ interface menuItems {
 }
 
 const menuItems: menuItems[] = [
-  { label: "Home", value: "Home", dropdown: false, navigate: "/home" },
+  { label: "Home", value: "Home", dropdown: false, navigate: "/" },
   {
     label: "I Can",
     value: "I Can",
