@@ -194,7 +194,7 @@ const ContactUs = () => {
                       PHONE NUMBER
                     </Typography>
                     <a
-                      href="tel:9945753240"
+                      href="tel:7975207595"
                       target="_blank"
                       style={{ textDecoration: "none" }}
                     >
