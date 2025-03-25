@@ -349,7 +349,7 @@ const Footer = () => {
         <Grid container mt={5} mr={3} ml={5}>
           <Box
             component={"img"}
-            src={require("../Assets/Images/Communn-new-logo.png")}
+            src={require("../Assets/Images/Group 239333.png")}
             alt=""
             sx={{
               width: "60%",
@@ -371,7 +371,7 @@ const Footer = () => {
             <a href="/home" style={{ textDecoration: "none" }}>
               <Box
                 component={"img"}
-                src={require("../Assets/Images/Communn-new-logo.png")}
+                src={require("../Assets/Images/Group 239333.png")}
                 alt=""
                 sx={{ width: "80%", pb: 2 }}
               />
@@ -510,7 +510,7 @@ const Footer = () => {
               </Typography>
               <Stack sx={{ display: "block" }} marginTop={2}>
                 <a
-                  href="https://www.instagram.com/onecommunn_official/"
+                  href="https://www.instagram.com/communn.io/"
                   target="_blank"
                   rel="noreferrer"
                 >

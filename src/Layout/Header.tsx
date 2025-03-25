@@ -139,7 +139,7 @@ const Header = () => {
             <Box component="a" href="/" sx={{ width: "15%" }}>
               <Box
                 component="img"
-                src={require("../Assets/Images/Logo.png")}
+                src={require("../Assets/Images/logo.png")}
                 alt="Logo"
                 sx={{
                   width: "100%",
@@ -149,7 +149,7 @@ const Header = () => {
             </Box>
             <Box
               component="img"
-              src={require("../Assets/Images/Logo.png")}
+              src={require("../Assets/Images/logo.png")}
               alt="Logo"
               sx={{
                 width: "55%",

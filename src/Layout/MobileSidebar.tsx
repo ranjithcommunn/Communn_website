@@ -163,7 +163,7 @@ export default function MobileSideBar() {
         <Link to="/home  " style={{ textDecoration: "none", fontFamily: 'Montserrat' }}>
           <Box
             component={"img"}
-            src={require("../Assets/Images/Logo.png")}
+            src={require("../Assets/Images/logo.png")}
             alt=""
             sx={{ width: "60%" }}
           />
