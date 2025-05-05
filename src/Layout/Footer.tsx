@@ -11,7 +11,7 @@ import {
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Link } from "react-router-dom";
@@ -261,7 +261,7 @@ const Footer = () => {
               component={Link}
               to=""
               onClick={() =>
-                window.open("https://admin.onecommunn.com/", "_blank")
+                window.open("https://communn.io/admin/", "_blank")
               }
               sx={{
                 fontFamily: "Montserrat",
@@ -460,6 +460,7 @@ const Footer = () => {
             </List>
           </Grid>
           <Grid item xs={6} md={2.5} lg={2.5}>
+
             <Stack>
               <Typography
                 sx={{
@@ -506,9 +507,43 @@ const Footer = () => {
                   mr: { xs: 2 },
                 }}
               >
+                Registered Office
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000000",
+                  fontSize: { xs: "10px", md: "14px" },
+                  fontFamily: "Montserrat",
+                }}
+              >
+                NO 1/A MKK ROAD NEAR HARISCHANDRA GHAT MARRIYAPPAN PALYA RAJAJINAGAR 2ND STAGE , Bangalore North, Karnataka, India - 560021
+                CIN: U72900KA2020PTC142176
+
+
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000000",
+                  fontSize: { xs: "10px", md: "14px" },
+                  fontFamily: "Montserrat",
+                }}
+              >
+                Contact: info@communn.io
+              </Typography>
+            </Stack>
+            <Stack>
+              <Typography
+                sx={{
+                  fontFamily: "Montserrat",
+                  fontSize: { xs: "16px", md: "20px" },
+                  fontWeight: "bold",
+                  color: "#000000E5",
+                  mr: { xs: 2 },
+                }}
+              >
                 Follow us
               </Typography>
-              <Stack sx={{ display: "block" }} marginTop={2}>
+              <Stack sx={{ display: "block" }} >
                 <a
                   href="https://www.instagram.com/communn.io/"
                   target="_blank"
@@ -550,7 +585,7 @@ const Footer = () => {
                   </IconButton>
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/one-communn/"
+                  href="https://www.youtube.com/@Communn_io"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -559,7 +594,7 @@ const Footer = () => {
                     aria-label="like"
                     sx={{ backgroundColor: "white", m: 0.5 }}
                   >
-                    <FacebookOutlinedIcon
+                    <YouTubeIcon
                       sx={{
                         color: "black",
                         fontSize: { xs: "15px", md: "18px" },
@@ -646,7 +681,7 @@ const Footer = () => {
               </Stack> */}
             </Stack>
           </Grid>
-          <Divider sx={{ width: "100%" }} />
+          <Divider sx={{ width: "100%", mt: 1 }} />
         </Grid>
       </Box>
       <Box sx={{ backgroundColor: "#f2f2f2f2", pt: { xs: 3, md: 0 } }}>
@@ -660,7 +695,8 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            © {currentDate?.getFullYear()} Onecommunn. All Rights Reserved.
+            © {currentDate?.getFullYear()}  Communn. A Product of Digitrii Solutions Private Limited. All rights reserved.
+
           </Typography>
         </Stack>
       </Box>
