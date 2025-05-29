@@ -518,8 +518,6 @@ const Footer = () => {
               >
                 NO 1/A MKK ROAD NEAR HARISCHANDRA GHAT MARRIYAPPAN PALYA RAJAJINAGAR 2ND STAGE , Bangalore North, Karnataka, India - 560021
                 CIN: U72900KA2020PTC142176
-
-
               </Typography>
               <Typography
                 sx={{
