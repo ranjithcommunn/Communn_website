@@ -693,7 +693,9 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            © {currentDate?.getFullYear()}  Communn. A Product of Digitrii Solutions Private Limited. All rights reserved.
+            © {currentDate?.getFullYear()}  Communn.io.  All rights reserved.
+            {/* A Product of Digitrii Solutions Private Limited. */}
+
 
           </Typography>
         </Stack>
